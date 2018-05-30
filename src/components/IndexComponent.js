@@ -22,6 +22,8 @@ export default class IndexComponent extends Component {
               return <TableRow obj={object} key={i} />;
           });
       }
+
+
     render() {
         return (
             <div className="container">

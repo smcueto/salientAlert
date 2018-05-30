@@ -29,7 +29,7 @@ export default class CreateComponent extends Component {
             name: this.state.name,
             port: this.state.port
         }
-        console.log(serverport);
+
         axios.post('http://localhost:4200/serverport/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
@@ -41,15 +41,15 @@ export default class CreateComponent extends Component {
     render() {
         return (
             <div style={{marginTop: 50}}>
-              <h3>Add New Report</h3>
+              <h3>Add New Server</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Add Host Name:  </label>
-                        <input type="text" className="form-control"/>
+                        <input type="text" value={this.state.name} className="form-control" onChange={this.onChangeHostName}/>
                     </div>
                     <div className="form-group">
                         <label>Add Server Port: </label>
-                        <input type="text" className="form-control"/>
+                        <input type="text" value={this.state.port} className="form-control" onChange={this.onChangePort}/>
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Add Node server" className="btn btn-primary"/>
