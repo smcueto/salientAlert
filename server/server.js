@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const PORT = 4200;
 const cors = require('cors');
-const config = require('./data/db/DB');
+const config = require('./database/DB');
 const ServerPortRouter = require('./routes/ServerPortRoutes');
 
 mongoose.connect(config.DB).then(
@@ -15,6 +15,8 @@ mongoose.connect(config.DB).then(
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.use('/serverport', ServerPortRouter);
 
 app.listen(PORT, function(){
   console.log('Server is running on Port: ',PORT);
