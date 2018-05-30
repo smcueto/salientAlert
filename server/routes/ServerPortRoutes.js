@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-
 const ServerPort = require('../models/ServerPort');
 
 ServerPortRouter.route('/add').post(function (req, res) {
@@ -43,7 +42,8 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
       serverport.port = req.body.port;
 
       serverport.save().then(serverport => {
-          res.json('Update complete');
+          res.json(serverport);
+    
       })
       .catch(err => {
             res.status(400).send("unable to update the database");
