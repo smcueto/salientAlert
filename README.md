@@ -13,23 +13,12 @@ Signal is a online community space for people to report ICE Raids or Checkpoints
 * Fork repo and `git clone` into your local desktop
 
 ### A. Backend Data Base
-1. Download _*Sequel Pro*_ [http://www.sequelpro.com/](http://www.sequelpro.com/)
-  * Optional - Download *MySQL WorkBench* [https://dev.mysql.com/downloads/workbench/](https://dev.mysql.com/downloads/workbench/)
-2. If you have brew installed, install `brew install mysql`, then start with `brew services start mysql`
-3. Create new connection in Sequel Pro with the following connection details and press connect
-  * Name: **127.0.0.1**
-  * Host: [your name, optional]
-  * Username: **root**
-  * Password: [your own password, optional]
-  * Database: **signalProject**
-  * Port: [leave blank, optional]
-4. In your connection, create a table named **users**
-5. In users table create the fields **name** and **email** with type **VARCHAR** and **length 100**
-6. `cd` into *react-backend*
-7. Run `npm install` to get node modules
-8. Install `npm install nodemon  -g` in oder to run `nodemon` command
-9. run `nodemon app.js` to get server started
-10. Your server should start in Terminal and say *Server Started on Port 3001...*
+1. Download _*Mongo DB*_ [https://docs.mongodb.com/manual/installation/](https://docs.mongodb.com/manual/installation/)
+<!-- 2. `cd` into *react-backend*
+3. Run `npm install` to get node modules
+4. Install `npm install nodemon  -g` in oder to run `nodemon` command
+5. run `nodemon app.js` to get server started
+6. Your server should start in Terminal and say *Server Started on Port 4200...* -->
 
 ### B. Frontend Application
 1. In a seperate tab in your Terminal,`cd` into *react-frontend* directory
