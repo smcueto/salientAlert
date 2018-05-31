@@ -41,18 +41,18 @@ export default class CreateComponent extends Component {
     render() {
         return (
             <div style={{marginTop: 50}}>
-              <h3>Add New Server</h3>
+              <h3>Add Report</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Host Name:  </label>
+                        <label>Report Information:  </label>
                         <input type="text" value={this.state.name} className="form-control" onChange={this.onChangeHostName}/>
                     </div>
                     <div className="form-group">
-                        <label>Add Server Port: </label>
+                        <label>Add Zipcode</label>
                         <input type="text" value={this.state.port} className="form-control" onChange={this.onChangePort}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Add Node server" className="btn btn-primary"/>
+                        <input type="submit" value="Add Event" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>
