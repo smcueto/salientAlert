@@ -10,24 +10,22 @@ class App extends Component {
     return (
     <Router>
        <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-md navbar-light bg-light">
             <a className="navbar-brand">Salient Alert</a>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                   <Link to={'/'} className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/create'} className="nav-link"></Link>
+                  <Link to={'/create'} className="nav-link">Submit Event</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/index'} className="nav-link">Index</Link>
+                  <Link to={'/index'} className="nav-link">Reports</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/edit/:id'} className="nav-link">Edit</Link>
                 </li>
               </ul>
-            </div>
           </nav>
           <Switch>
               <Route exact path='/create' component={CreateComponent} />
