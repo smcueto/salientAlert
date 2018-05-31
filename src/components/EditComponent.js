@@ -10,7 +10,8 @@ export default class EditComponent extends Component {
 
         this.state = {name: '', port: ''};
     }
-    fetchQuery(){
+
+    componentDidMount() {
         axios.get('http://localhost:4200/serverport/edit/'+this.props.match.params.id)
         .then(response => {
             this.setState({ name: response.data.name, port: response.data.port });
@@ -19,10 +20,6 @@ export default class EditComponent extends Component {
             console.log(error);
         })
     }
-
-    componentDidMount() {
-       this.fetchQuery();
-        }
 
     onChangeHostName(e) {
         this.setState({
