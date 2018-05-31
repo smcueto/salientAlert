@@ -19,10 +19,10 @@ export default class IndexComponent extends Component {
       }
       tabRow(){
           return this.state.serverports.map(function(object, i){
-              return <TableRow obj={object} key={i} />;
+
+              return <TableRow obj={object} key={i}/>;
           });
       }
-
 
     render() {
         return (
