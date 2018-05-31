@@ -14,11 +14,6 @@ Signal is a online community space for people to report ICE Raids or Checkpoints
 
 ### A. Backend Data Base
 1. Download _*Mongo DB*_ [https://docs.mongodb.com/manual/installation/](https://docs.mongodb.com/manual/installation/)
-<!-- 2. `cd` into *react-backend*
-3. Run `npm install` to get node modules
-4. Install `npm install nodemon  -g` in oder to run `nodemon` command
-5. run `nodemon app.js` to get server started
-6. Your server should start in Terminal and say *Server Started on Port 4200...* -->
 
 ### B. Frontend Application
 1. In a seperate tab in your Terminal run `yarn install` to get your nodes
