@@ -21,20 +21,19 @@ Signal is a online community space for people to report ICE Raids or Checkpoints
 6. Your server should start in Terminal and say *Server Started on Port 4200...* -->
 
 ### B. Frontend Application
-1. In a seperate tab in your Terminal,`cd` into *react-frontend* directory
-2. Run `npm install` then `yarn install`
-3. Run `yarn start` to get react front end running.
+1. In a seperate tab in your Terminal run `yarn install` to get your nodes
+2. Then run `yarn start` to get react front end running on port 3000.
 
 ## Current Feature list
 #### Frontend
-* Buttons
-* Form
+* Buttons - deleting and edit
+* Sub MissionForm
+* Table of Data
 
 #### Backend
 * Running Express Server
-* Hard Coded Data Display and being sent to SQL Pro
+* Data Displayed and being sent to MongoDB backend database
 
 ## Later Features List
-* Form Submission will send data to back extended
-* Back end will render and display to front end
+* Voting up and down feature for data submitted
 * Heat Map Feature will be display with dummy data input
