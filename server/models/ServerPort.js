@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 // Define collection and schema for Items
 var ServerPort = new Schema({
-  name: {
+  iceraidpost: {
     type: String
   },
-  port: {
+  iceraidzipcode: {
       type: Number
   }
 },{
-    collection: 'servers'
+    collection: 'iceraids'
 });
 
 module.exports = mongoose.model('ServerPort', ServerPort);

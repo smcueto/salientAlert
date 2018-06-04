@@ -38,8 +38,8 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
       return next(new Error('Could not load Document'));
     else {
       // do your updates here
-      serverport.name = req.body.name;
-      serverport.port = req.body.port;
+      serverport.iceraidpost = req.body.iceraidpost;
+      serverport.iceraidzipcode = req.body.iceraidzipcode;
 
       serverport.save().then(serverport => {
           res.json(serverport);

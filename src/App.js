@@ -12,17 +12,17 @@ class App extends Component {
     <Router>
       <div>
        <div className="container">
-        <nav className="navbar navbar-expand-md navbar-light bg-light">
+        <nav className="navbar navbar-expand-xl navbar-light bg-light">
             <a className="navbar-brand">Salient Alert</a>
               <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                   <Link to={'/'} className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/create'} className="nav-link">Submit Event</Link>
+                  <Link to={'/create'} className="nav-link">Submit Ice Raid</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/index'} className="nav-link">Reports</Link>
+                  <Link to={'/index'} className="nav-link">Report Posts</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/edit/:id'} className="nav-link">Edit</Link>
