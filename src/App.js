@@ -19,10 +19,10 @@ class App extends Component {
                   <Link to={'/'} className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/create'} className="nav-link">Submit Ice Raid</Link>
+                  <Link to={'/create'} className="nav-link">Report Ice Raid</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/index'} className="nav-link">Report Posts</Link>
+                  <Link to={'/index'} className="nav-link">Reports</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/edit/:id'} className="nav-link">Edit</Link>
