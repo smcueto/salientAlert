@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import keys from '../keys';
-console.log(keys);
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
@@ -17,17 +16,13 @@ export default class mapComp extends React.Component {
     }
   
     componentDidMount() {
-    //   const { lng, lat, zoom } = this.state;
-      const lng = this.state.lng;
-      const lat = this.state.lat;
-      const zoom = this.state.zoom;
+      // const { lng, lat, zoom } = this.state;
 
-      console.log(mapboxgl)
       const map = new mapboxgl.Map({
         container: this.mapContainer,
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [lng, lat],
-        zoom
+        center: [-94.5785667, 39.0997265],
+        zoom: 3
       });
   
       map.on('move', () => {
@@ -42,7 +37,6 @@ export default class mapComp extends React.Component {
     }
   
     render() {
-      const { lng, lat, zoom } = this.state;
   
       return (
         <div>
