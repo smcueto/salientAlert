@@ -46,8 +46,13 @@ export default class IndexComponent extends Component {
               <thead>
                 <tr>
                   <td>ID</td>
-                  <td>Name</td>
+                  <td>Post Info</td>
                   <td>Zipcode</td>
+                  <td>City</td>
+                  <td>Date Reported</td>
+                  <td>Time Reported</td>
+                  <td>Edit Post</td>
+                  <td>Delete Post</td>
                 </tr>
               </thead>
               <tbody>
