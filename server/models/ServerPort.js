@@ -10,13 +10,13 @@ var ServerPort = new Schema({
       type: Number
   },
   iceRaidCity: {
-    type: string
+    type: String
   },
   iceRaidDate: {
-    type: string
+    type: String
   },
   iceRaidTime: {
-    type: string
+    type: String
   }
 },{
     collection: 'iceraids'
