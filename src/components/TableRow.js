@@ -9,7 +9,9 @@ class TableRow extends Component {
 }
 delete() {
     axios.get('http://localhost:4200/serverport/delete/'+this.props.obj._id)
-        .then(console.log('Deleted'))
+        .then(res => {
+          this.props.deleteReportObject(this.props.obj);
+        })
         .catch(err => console.log(err))
 }
   render() {
@@ -19,10 +21,10 @@ delete() {
             {this.props.obj._id}
           </td>
           <td>
-            {this.props.obj.name}
+            {this.props.obj.iceRaidPost}
           </td>
           <td>
-            {this.props.obj.port}
+            {this.props.obj.iceRaidZipcode}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

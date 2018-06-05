@@ -4,55 +4,55 @@ import axios from 'axios';
 export default class CreateComponent extends Component {
     constructor(props) {
         super(props);
-        this.onChangeHostName = this.onChangeHostName.bind(this);
-        this.onChangePort = this.onChangePort.bind(this);
+        this.onChangeIcePost = this.onChangeIcePost.bind(this);
+        this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            name: '',
-            port: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         }
     }
-    onChangeHostName(e) {
+    onChangeIcePost(e) {
         this.setState({
-            name: e.target.value
+            iceRaidPost: e.target.value
         });
     }
-    onChangePort(e) {
+    onChangeIceZipcode(e) {
         this.setState({
-            port: e.target.value
+            iceRaidZipcode: e.target.value
         });
     }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            name: this.state.name,
-            port: this.state.port
+            iceRaidPost: this.state.iceRaidPost,
+            iceRaidZipcode: this.state.iceRaidZipcode
         }
 
         axios.post('http://localhost:4200/serverport/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
-            name: '',
-            port: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         })
     }
 
     render() {
         return (
             <div style={{marginTop: 50}}>
-              <h3>Add New Server</h3>
+              <h3>Report Ice Raid</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Add Host Name:  </label>
-                        <input type="text" value={this.state.name} className="form-control" onChange={this.onChangeHostName}/>
+                        <label>Ice Raid Information:  </label>
+                        <input type="text" value={this.state.iceRaidPost} className="form-control" onChange={this.onChangeIcePost}/>
                     </div>
                     <div className="form-group">
-                        <label>Add Server Port: </label>
-                        <input type="text" value={this.state.port} className="form-control" onChange={this.onChangePort}/>
+                        <label>Add Zipcode</label>
+                        <input type="text" value={this.state.iceRaidZipcode} className="form-control" onChange={this.onChangeIceZipcode}/>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Add Node server" className="btn btn-primary"/>
+                        <input type="submit" value="Add Event" className="btn btn-primary"/>
                     </div>
                 </form>
             </div>

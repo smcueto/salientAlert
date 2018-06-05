@@ -4,61 +4,58 @@ import axios from 'axios';
 export default class EditComponent extends Component {
     constructor(props) {
         super(props);
-        this.onChangeHostName = this.onChangeHostName.bind(this);
-        this.onChangePort = this.onChangePort.bind(this);
+        this.onChangeIcePost = this.onChangeIcePost.bind(this);
+        this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        this.state = {name: '', port: ''};
+        this.state = {iceRaidPost: '', iceRaidZipcode: ''};
     }
-    fetchQuery(){
+
+    componentDidMount() {
         axios.get('http://localhost:4200/serverport/edit/'+this.props.match.params.id)
         .then(response => {
-            this.setState({ name: response.data.name, port: response.data.port });
+            this.setState({ iceRaidPost: response.data.iceRaidPost, iceRaidZipcode: response.data.iceRaidZipcode });
         })
         .catch(function (error) {
             console.log(error);
         })
     }
 
-    componentDidMount() {
-       this.fetchQuery();
-        }
-
-    onChangeHostName(e) {
+    onChangeIcePost(e) {
         this.setState({
-            name: e.target.value
+            iceRaidPost: e.target.value
         });
     }
-    onChangePort(e) {
+    onChangeIceZipcode(e) {
         this.setState({
-            port: e.target.value
+            iceRaidZipcode: e.target.value
         });
     }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            name: this.state.name,
-            port: this.state.port
+            iceRaidPost: this.state.iceRaidPost,
+            iceRaidZipcode: this.state.iceRaidZipcode
         }
         axios.post('http://localhost:4200/serverport/update/'+this.props.match.params.id, serverport)
         .then(res => this.props.history.push('/index'));
         this.setState({
-            name: '',
-            port: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         })
     }
     render() {
         return (
             <div style={{marginTop: 50}}>
-            <h3>Edit New Server</h3>
+            <h3>Edit Ice Raid Post</h3>
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                    <label>Add Host Name:  </label>
-                    <input type="text" value={this.state.name || ''} className="form-control" onChange={this.onChangeHostName}/>
+                    <label>Edit Ice Raid Post:  </label>
+                    <input type="text" value={this.state.iceRaidPost || ''} className="form-control" onChange={this.onChangeIcePost}/>
                 </div>
                 <div className="form-group">
-                    <label>Add Server Port: </label>
-                    <input type="text" value={this.state.port || ''} className="form-control" onChange={this.onChangePort}/>
+                    <label>Edit Zipcode: </label>
+                    <input type="text" value={this.state.iceRaidZipcode || ''} className="form-control" onChange={this.onChangeIceZipcode}/>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Update server" className="btn btn-primary"/>
