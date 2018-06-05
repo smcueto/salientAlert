@@ -8,13 +8,13 @@ export default class EditComponent extends Component {
         this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        this.state = {iceraidpost: '', iceraidzipcode: ''};
+        this.state = {iceRaidPost: '', iceRaidZipcode: ''};
     }
 
     componentDidMount() {
         axios.get('http://localhost:4200/serverport/edit/'+this.props.match.params.id)
         .then(response => {
-            this.setState({ iceraidpost: response.data.iceraidpost, iceraidzipcode: response.data.iceraidzipcode });
+            this.setState({ iceRaidPost: response.data.iceRaidPost, iceRaidZipcode: response.data.iceRaidZipcode });
         })
         .catch(function (error) {
             console.log(error);
@@ -23,25 +23,25 @@ export default class EditComponent extends Component {
 
     onChangeIcePost(e) {
         this.setState({
-            iceraidpost: e.target.value
+            iceRaidPost: e.target.value
         });
     }
     onChangeIceZipcode(e) {
         this.setState({
-            iceraidzipcode: e.target.value
+            iceRaidZipcode: e.target.value
         });
     }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            iceraidpost: this.state.iceraidpost,
-            iceraidzipcode: this.state.iceraidzipcode
+            iceRaidPost: this.state.iceRaidPost,
+            iceRaidZipcode: this.state.iceRaidZipcode
         }
         axios.post('http://localhost:4200/serverport/update/'+this.props.match.params.id, serverport)
         .then(res => this.props.history.push('/index'));
         this.setState({
-            iceraidpost: '',
-            iceraidzipcode: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         })
     }
     render() {
@@ -51,11 +51,11 @@ export default class EditComponent extends Component {
             <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Edit Ice Raid Post:  </label>
-                    <input type="text" value={this.state.iceraidpost || ''} className="form-control" onChange={this.onChangeIcePost}/>
+                    <input type="text" value={this.state.iceRaidPost || ''} className="form-control" onChange={this.onChangeIcePost}/>
                 </div>
                 <div className="form-group">
-                    <label>Add Zipcode: </label>
-                    <input type="text" value={this.state.iceraidzipcode || ''} className="form-control" onChange={this.onChangeIceZipcode}/>
+                    <label>Edit Zipcode: </label>
+                    <input type="text" value={this.state.iceRaidZipcode || ''} className="form-control" onChange={this.onChangeIceZipcode}/>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Update server" className="btn btn-primary"/>

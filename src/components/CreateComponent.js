@@ -9,32 +9,32 @@ export default class CreateComponent extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            iceraidpost: '',
-            iceraidzipcode: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         }
     }
     onChangeIcePost(e) {
         this.setState({
-            iceraidpost: e.target.value
+            iceRaidPost: e.target.value
         });
     }
     onChangeIceZipcode(e) {
         this.setState({
-            iceraidzipcode: e.target.value
+            iceRaidZipcode: e.target.value
         });
     }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            iceraidpost: this.state.iceraidpost,
-            iceraidzipcode: this.state.iceraidzipcode
+            iceRaidPost: this.state.iceRaidPost,
+            iceRaidZipcode: this.state.iceRaidZipcode
         }
 
         axios.post('http://localhost:4200/serverport/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
-            iceraidpost: '',
-            iceraidzipcode: ''
+            iceRaidPost: '',
+            iceRaidZipcode: ''
         })
     }
 
@@ -45,11 +45,11 @@ export default class CreateComponent extends Component {
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Ice Raid Information:  </label>
-                        <input type="text" value={this.state.iceraidpost} className="form-control" onChange={this.onChangeIcePost}/>
+                        <input type="text" value={this.state.iceRaidPost} className="form-control" onChange={this.onChangeIcePost}/>
                     </div>
                     <div className="form-group">
                         <label>Add Zipcode</label>
-                        <input type="text" value={this.state.iceraidzipcode} className="form-control" onChange={this.onChangeIceZipcode}/>
+                        <input type="text" value={this.state.iceRaidZipcode} className="form-control" onChange={this.onChangeIceZipcode}/>
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Add Event" className="btn btn-primary"/>

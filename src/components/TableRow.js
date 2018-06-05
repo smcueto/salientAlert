@@ -21,10 +21,10 @@ delete() {
             {this.props.obj._id}
           </td>
           <td>
-            {this.props.obj.iceraidpost}
+            {this.props.obj.iceRaidPost}
           </td>
           <td>
-            {this.props.obj.iceraidzipcode}
+            {this.props.obj.iceRaidZipcode}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
