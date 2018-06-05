@@ -9,7 +9,13 @@ var ServerPort = new Schema({
   iceRaidZipcode: {
       type: Number
   },
+  iceRaidCity: {
+    type: string
+  },
   iceRaidDate: {
+    type: string
+  },
+  iceRaidTime: {
     type: string
   }
 },{

@@ -27,6 +27,15 @@ delete() {
             {this.props.obj.iceRaidZipcode}
           </td>
           <td>
+            {this.props.obj.iceRaidCity}
+          </td>
+          <td>
+            {this.props.obj.iceRaidDate}
+          </td>
+          <td>
+            {this.props.obj.iceRaidTime}
+          </td>
+          <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
           </td>
           <td>
