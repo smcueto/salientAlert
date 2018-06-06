@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ResourcesPage extends React.Component {
+export default class ResourcesPage extends Component {
     
     
     render() {

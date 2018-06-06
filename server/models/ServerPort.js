@@ -23,3 +23,25 @@ var ServerPort = new Schema({
 });
 
 module.exports = mongoose.model('ServerPort', ServerPort);
+
+var CheckPointPort = new Schema({
+  checkPointPost: {
+    type: String
+  },
+  checkPointZipcode: {
+      type: Number
+  },
+  checkPointCity: {
+    type: String
+  },
+  checkPointDate: {
+    type: String
+  },
+  checkPointTime: {
+    type: String
+  }
+},{
+    collection: 'checkpoints'
+});
+
+module.exports = mongoose.model('CheckPointPort', CheckPointPort);

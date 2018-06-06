@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class CreateCheckPoint extends React.Component {
+export default class CreateCheckPoint extends Component {
     
     
     render() {
