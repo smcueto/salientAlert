@@ -12,7 +12,7 @@ export default class MapDisplay extends Component {
       this.state = {
         lng: -95.87444616097513,
         lat: 40.0481814794457,
-        zoom: 4
+        zoom: 3
       };
     }
   
