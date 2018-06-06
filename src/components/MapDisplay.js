@@ -4,7 +4,7 @@ import keys from '../keys';
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
-export default class mapComp extends React.Component {
+export default class MapDisplay extends React.Component {
 
     constructor(props: Props) {
       super(props);

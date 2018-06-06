@@ -14,6 +14,17 @@ ServerPortRouter.route('/add').post(function (req, res) {
     });
 });
 
+// ServerPortRouter.route('/map').post(function (req, res) {
+//   const serverport = new ServerPort(req.body);
+//   serverport.save()
+//     .then(serverport => {
+//         res.json('loaded map page successfully');
+//     })
+//     .catch(err => {
+//     res.status(400).send("unable to load map page");
+//     });
+// });
+
 ServerPortRouter.route('/').get(function (req, res) {
     ServerPort.find(function (err, serverports){
     if(err){
