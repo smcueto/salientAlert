@@ -10,7 +10,7 @@ module.exports = {
     url: 'mongodb://localhost:4200',
 
     // TODO Change this to your database name:
-    databaseName: "reactexpress",
+    databaseName: "salientalert",
 
     // uncomment and edit to specify Mongo client connect options (eg. increase the timeouts)
     // see https://mongodb.github.io/node-mongodb-native/2.2/api/MongoClient.html
