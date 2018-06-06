@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import keys from '../keys';
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
-export default class MapDisplay extends React.Component {
+export default class MapDisplay extends Component {
 
-    constructor(props: Props) {
+    constructor(props) {
       super(props);
       this.state = {
-        lng: 5,
-        lat: 34,
-        zoom: 1.5
+        lng: -95.87444616097513,
+        lat: 40.0481814794457,
+        zoom: 4
       };
     }
   
     componentDidMount() {
-      // const { lng, lat, zoom } = this.state;
+      const { lng, lat, zoom } = this.state;
 
       const map = new mapboxgl.Map({
         container: this.mapContainer,
         style: 'mapbox://styles/mapbox/streets-v9',
-        center: [-94.5785667, 39.0997265],
-        zoom: 3
+        center: [lng, lat],
+        zoom 
       });
   
       map.on('move', () => {
