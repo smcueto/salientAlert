@@ -16,10 +16,11 @@ class App extends Component {
       <div>
        <div className="container">
         <nav className="navbar navbar-expand-xl navbar-light bg-light">
-            <a className="navbar-brand">Salient Alert</a>
+            <Link to={'/'} className="nav-link" className="navbar-brand">Salient Alert
+            </Link>
               <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                  <Link to={'/home'} className="nav-link">Home</Link>
+                  <Link to={'/'} className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/resources'} className="nav-link">Resources</Link>
@@ -44,7 +45,7 @@ class App extends Component {
           </div>
           <div className="container">
           <Switch>
-              <Route exact path='/home' component={HomePage} />
+              <Route exact path='/' component={HomePage} />
               <Route exact path='/resources' component={ResourcesPage} />
               <Route exact path='/create' component={CreateComponent} />
               <Route exact path='/createcheckpoint' component={CreateCheckPoint} />
