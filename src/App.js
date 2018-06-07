@@ -8,7 +8,7 @@ import IceRaidEdit from './iceraids/IceRaidEdit';
 
 
 import CheckPointForm from './checkpoints/CheckPointForm';
-// import CheckPointTable from './checkpoints/CheckPointTable';
+import CheckPointTable from './checkpoints/CheckPointTable';
 
 import ResourcesPage from './ResourcesPage';
 import MapDisplay from './MapDisplay';
