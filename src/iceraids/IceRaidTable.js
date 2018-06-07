@@ -3,7 +3,7 @@ import axios from 'axios';
 import TableRow from './TableRow';
 
 
-export default class IndexComponent extends Component {
+export default class IceRaidTable extends Component {
     constructor(props) {
         super(props);
         this.state = {serverports: []};
@@ -47,8 +47,10 @@ export default class IndexComponent extends Component {
                 <tr>
                   <td>ID</td>
                   <td>Post Info</td>
+                  <td>Address</td>
                   <td>Zipcode</td>
                   <td>City</td>
+                  <td>State</td>
                   <td>Date Reported</td>
                   <td>Time Reported</td>
                   <td>Edit Post</td>

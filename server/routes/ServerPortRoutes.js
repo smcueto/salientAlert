@@ -50,8 +50,10 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
     else {
       // do your updates here
       serverport.iceRaidPost = req.body.iceRaidPost;
+      serverport.iceRaidAddress = req.body.iceRaidAddress;
       serverport.iceRaidZipcode = req.body.iceRaidZipcode;
       serverport.iceRaidCity = req.body.iceRaidCity;
+      serverport.iceRaidState = req.body.iceRaidState;
       serverport.iceRaidDate = req.body.iceRaidDate;
       serverport.iceRaidTime = req.body.iceRaidTime;
       serverport.save().then(serverport => {

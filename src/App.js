@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import CreateComponent from './components/CreateComponent';
-import EditComponent from './components/EditComponent';
-import IndexComponent from './components/IndexComponent';
-import MapDisplay from './components/MapDisplay';
-import HomePage from './components/HomePage';
-import CreateCheckPoint from './components/CreateCheckPoint';
-import ResourcesPage from './components/ResourcesPage';
+
+import IceRaidForm from './iceraids/IceRaidForm';
+import IceRaidTable from './iceraids/IceRaidTable';
+import IceRaidEdit from './iceraids/IceRaidEdit';
+
+
+import CheckPointForm from './checkpoints/CheckPointForm';
+// import CheckPointTable from './checkpoints/CheckPointTable';
+
+import ResourcesPage from './ResourcesPage';
+import MapDisplay from './MapDisplay';
+import HomePage from './HomePage';
+
 
 class App extends Component {
   render() {
@@ -29,7 +35,7 @@ class App extends Component {
                   <Link to={'/create'} className="nav-link">Report Ice Raid</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/createcheckpoint'} className="nav-link">Report CheckPoint</Link>
+                  <Link to={'/checkpointform'} className="nav-link">Report CheckPoint</Link>
                 </li>
                 <li className="nav-item">
                   <Link to={'/index'} className="nav-link">Reports</Link>
@@ -48,11 +54,11 @@ class App extends Component {
               <Route exact path='/' component={HomePage} />
               <Route exact path='/home' component={HomePage} />
               <Route exact path='/resources' component={ResourcesPage} />
-              <Route exact path='/create' component={CreateComponent} />
-              <Route exact path='/createcheckpoint' component={CreateCheckPoint} />
+              <Route exact path='/create' component={IceRaidForm} />
+              <Route exact path='/checkpointform' component={CheckPointForm} />
               <Route exact path='/map' component={MapDisplay} />
-              <Route path='/edit/:id' component={EditComponent} />
-              <Route path='/index' component={IndexComponent} />
+              <Route path='/edit/:id' component={IceRaidEdit} />
+              <Route path='/index' component={IceRaidTable} />
           </Switch>
           </div>
         </div>

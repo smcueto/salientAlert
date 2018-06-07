@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-class CheckPointTableRow extends Component {
+class TableRow extends Component {
   constructor(props) {
     super(props);
     this.delete = this.delete.bind(this);
@@ -21,19 +21,25 @@ delete() {
             {this.props.obj._id}
           </td>
           <td>
-            {this.props.obj.checkPointPost}
+            {this.props.obj.iceRaidPost}
           </td>
           <td>
-            {this.props.obj.checkPointZipcode}
+            {this.props.obj.iceRaidAddress}
           </td>
           <td>
-            {this.props.obj.checkPointCity}
+            {this.props.obj.iceRaidZipcode}
           </td>
           <td>
-            {this.props.obj.checkPointDate}
+            {this.props.obj.iceRaidCity}
           </td>
           <td>
-            {this.props.obj.checkPointTime}
+            {this.props.obj.iceRaidState}
+          </td>
+          <td>
+            {this.props.obj.iceRaidDate}
+          </td>
+          <td>
+            {this.props.obj.iceRaidTime}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
