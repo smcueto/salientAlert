@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var CheckPoint = new Schema({
+const CheckPoint = new Schema({
   checkPointPost: {
     type: String
   },
@@ -18,11 +18,9 @@ var CheckPoint = new Schema({
     type: String
   },
   checkPointDate: {
-    type: String
-  },
-  checkPointTime: {
-    type: String
+    type: Date
   }
+ 
 },{
     collection: 'checkpoints'
 });

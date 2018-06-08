@@ -1,24 +1,24 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-const checkPointCollectionDirectory = require('../models/CheckPoint');
+const CheckPointModel = require('../models/CheckPoint');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   
-  const checkPointBodyRequest = new checkPointCollectionDirectory(req.body);
+  const checkPointBodyRequest = new CheckPointModel(req.body);
   checkPointBodyRequest.save()
     .then(checkPointBodyRequest => {
-        res.json('Server added successfully');
+        res.json('Check Point added successfully');
     })
     .catch(err => {
-    res.status(400).send("unable to save to database");
+    res.status(500).send("unable to save to database");
     });
 });
 
 ServerPortRouter.route('/').get(function (req, res) {
-    checkPointCollectionDirectory.find(function (err, serverports){
+    CheckPointModel.find(function (err, serverports){
     if(err){
-      console.log(err);
+      return err;
     }
     else {
       res.json(serverports);
@@ -28,13 +28,13 @@ ServerPortRouter.route('/').get(function (req, res) {
 
 ServerPortRouter.route('/edit/:id').get(function (req, res) {
   const id = req.params.id;
-  checkPointCollectionDirectory.findById(id, function (err, checkPointBodyRequest){
+  CheckPointModel.findById(id, function (err, checkPointBodyRequest){
       res.json(checkPointBodyRequest);
   });
 });
 
 ServerPortRouter.route('/update/:id').post(function (req, res) {
-    checkPointCollectionDirectory.findById(req.params.id, function(err, checkPointBodyRequest) {
+    CheckPointModel.findById(req.params.id, function(err, checkPointBodyRequest) {
     if (!checkPointBodyRequest)
       return next(new Error('Could not load Document'));
     else {
@@ -51,14 +51,14 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
     
       })
       .catch(err => {
-            res.status(400).send("unable to update the database");
+            res.status(500).send("unable to update the database");
       });
     }
   });
 });
 
 ServerPortRouter.route('/delete/:id').get(function (req, res) {
-    checkPointCollectionDirectory.findByIdAndRemove({_id: req.params.id},
+    CheckPointModel.findByIdAndRemove({_id: req.params.id},
        function(err, checkPointBodyRequest){
         if(err) res.json(err);
         else res.json('Successfully removed');

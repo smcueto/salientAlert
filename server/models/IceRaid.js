@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Define collection and schema for Items
-var iceRaidCollectionModel = new Schema({
+const IceRaidModel = new Schema({
   iceRaidPost: {
     type: String
   },
@@ -19,13 +19,10 @@ var iceRaidCollectionModel = new Schema({
     type: String
 },
   iceRaidDate: {
-    type: String
-  },
-  iceRaidTime: {
-    type: String
+    type: Date
   }
 },{
     collection: 'iceraids'
 });
 
-module.exports = mongoose.model('iceRaidCollectionModel', iceRaidCollectionModel);
+module.exports = mongoose.model('IceRaidnModel', IceRaidModel);

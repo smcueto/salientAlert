@@ -1,24 +1,24 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-const iceCollectionDirectory = require('../models/IceRaid');
+const IceRaidModel = require('../models/IceRaid');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   
-  const raidBodyRequest = new iceCollectionDirectory(req.body);
+  const raidBodyRequest = new IceRaidModel(req.body);
   raidBodyRequest.save()
     .then(raidBodyRequest => {
-        res.json('Server added successfully');
+        res.json('Ice Raid Report added successfully');
     })
     .catch(err => {
-    res.status(400).send("unable to save to database");
+    res.status(500).send("unable to save to database");
     });
 });
 
 ServerPortRouter.route('/').get(function (req, res) {
-    iceCollectionDirectory.find(function (err, serverports){
+    IceRaidModel.find(function (err, serverports){
     if(err){
-      console.log(err);
+      return err;
     }
     else {
       res.json(serverports);
@@ -28,13 +28,13 @@ ServerPortRouter.route('/').get(function (req, res) {
 
 ServerPortRouter.route('/edit/:id').get(function (req, res) {
   const id = req.params.id;
-  iceCollectionDirectory.findById(id, function (err, raidBodyRequest){
+  IceRaidModel.findById(id, function (err, raidBodyRequest){
       res.json(raidBodyRequest);
   });
 });
 
 ServerPortRouter.route('/update/:id').post(function (req, res) {
-    iceCollectionDirectory.findById(req.params.id, function(err, raidBodyRequest) {
+    IceRaidModel.findById(req.params.id, function(err, raidBodyRequest) {
     if (!raidBodyRequest)
       return next(new Error('Could not load Document'));
     else {
@@ -51,14 +51,14 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
     
       })
       .catch(err => {
-            res.status(400).send("unable to update the database");
+            res.status(500).send("unable to update the database");
       });
     }
   });
 });
 
 ServerPortRouter.route('/delete/:id').get(function (req, res) {
-    iceCollectionDirectory.findByIdAndRemove({_id: req.params.id},
+    IceRaidModel.findByIdAndRemove({_id: req.params.id},
        function(err, raidBodyRequest){
         if(err) res.json(err);
         else res.json('Successfully removed');
