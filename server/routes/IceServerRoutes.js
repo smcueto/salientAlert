@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-const iceCollectionDirectory = require('../models/IceRaidModel');
+const iceCollectionDirectory = require('../models/IceRaid');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   

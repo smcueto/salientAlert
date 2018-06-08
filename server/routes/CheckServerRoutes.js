@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-const checkPointCollectionDirectory = require('../models/CheckPointModel');
+const checkPointCollectionDirectory = require('../models/CheckPoint');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   
