@@ -5,9 +5,9 @@ const Raid = require('../models/ServerPort');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   
-  const serverport = new Raid(req.body);
-  serverport.save()
-    .then(serverport => {
+  const raidBodyRequest = new Raid(req.body);
+  raidBodyRequest.save()
+    .then(raidBodyRequest => {
         res.json('Server added successfully');
     })
     .catch(err => {
@@ -28,26 +28,26 @@ ServerPortRouter.route('/').get(function (req, res) {
 
 ServerPortRouter.route('/edit/:id').get(function (req, res) {
   const id = req.params.id;
-  Raid.findById(id, function (err, serverport){
-      res.json(serverport);
+  Raid.findById(id, function (err, raidBodyRequest){
+      res.json(raidBodyRequest);
   });
 });
 
 ServerPortRouter.route('/update/:id').post(function (req, res) {
-    Raid.findById(req.params.id, function(err, serverport) {
-    if (!serverport)
+    Raid.findById(req.params.id, function(err, raidBodyRequest) {
+    if (!raidBodyRequest)
       return next(new Error('Could not load Document'));
     else {
       // do your updates here
-      serverport.iceRaidPost = req.body.iceRaidPost;
-      serverport.iceRaidAddress = req.body.iceRaidAddress;
-      serverport.iceRaidZipcode = req.body.iceRaidZipcode;
-      serverport.iceRaidCity = req.body.iceRaidCity;
-      serverport.iceRaidState = req.body.iceRaidState;
-      serverport.iceRaidDate = req.body.iceRaidDate;
-      serverport.iceRaidTime = req.body.iceRaidTime;
-      serverport.save().then(serverport => {
-          res.json(serverport);
+      raidBodyRequest.iceRaidPost = req.body.iceRaidPost;
+      raidBodyRequest.iceRaidAddress = req.body.iceRaidAddress;
+      raidBodyRequest.iceRaidZipcode = req.body.iceRaidZipcode;
+      raidBodyRequest.iceRaidCity = req.body.iceRaidCity;
+      raidBodyRequest.iceRaidState = req.body.iceRaidState;
+      raidBodyRequest.iceRaidDate = req.body.iceRaidDate;
+      raidBodyRequest.iceRaidTime = req.body.iceRaidTime;
+      raidBodyRequest.save().then(raidBodyRequest => {
+          res.json(raidBodyRequest);
     
       })
       .catch(err => {
@@ -59,7 +59,7 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
 
 ServerPortRouter.route('/delete/:id').get(function (req, res) {
     Raid.findByIdAndRemove({_id: req.params.id},
-       function(err, serverport){
+       function(err, raidBodyRequest){
         if(err) res.json(err);
         else res.json('Successfully removed');
     });
