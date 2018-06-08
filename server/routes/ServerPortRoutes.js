@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 const ServerPortRouter = express.Router();
-const Raid = require('../models/ServerPort');
+const iceCollectionDirectory = require('../models/ServerPort');
 
 ServerPortRouter.route('/add').post(function (req, res) {
   
-  const raidBodyRequest = new Raid(req.body);
+  const raidBodyRequest = new iceCollectionDirectory(req.body);
   raidBodyRequest.save()
     .then(raidBodyRequest => {
         res.json('Server added successfully');
@@ -16,7 +16,7 @@ ServerPortRouter.route('/add').post(function (req, res) {
 });
 
 ServerPortRouter.route('/').get(function (req, res) {
-    Raid.find(function (err, serverports){
+    iceCollectionDirectory.find(function (err, serverports){
     if(err){
       console.log(err);
     }
@@ -28,13 +28,13 @@ ServerPortRouter.route('/').get(function (req, res) {
 
 ServerPortRouter.route('/edit/:id').get(function (req, res) {
   const id = req.params.id;
-  Raid.findById(id, function (err, raidBodyRequest){
+  iceCollectionDirectory.findById(id, function (err, raidBodyRequest){
       res.json(raidBodyRequest);
   });
 });
 
 ServerPortRouter.route('/update/:id').post(function (req, res) {
-    Raid.findById(req.params.id, function(err, raidBodyRequest) {
+    iceCollectionDirectory.findById(req.params.id, function(err, raidBodyRequest) {
     if (!raidBodyRequest)
       return next(new Error('Could not load Document'));
     else {
@@ -58,7 +58,7 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
 });
 
 ServerPortRouter.route('/delete/:id').get(function (req, res) {
-    Raid.findByIdAndRemove({_id: req.params.id},
+    iceCollectionDirectory.findByIdAndRemove({_id: req.params.id},
        function(err, raidBodyRequest){
         if(err) res.json(err);
         else res.json('Successfully removed');
