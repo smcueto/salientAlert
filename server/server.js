@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/serverport', ServerPortRouter);
-app.use('/checkpointport', CheckPointPort);
 
 app.listen(PORT, function(){
   console.log('Server is running on Port: ',PORT);
