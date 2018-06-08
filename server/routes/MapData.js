@@ -1,0 +1,1 @@
+const CheckPointObject = require('../models/CheckPoint');
