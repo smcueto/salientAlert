@@ -13,7 +13,7 @@ export default class IceRaidTable extends Component {
       }
       
       componentDidMount(){
-        axios.get('http://localhost:4200/serverport')
+        axios.get('http://localhost:4200/iceraids')
         .then(response => {
           this.setState({ serverports: response.data });
         })
@@ -44,6 +44,7 @@ export default class IceRaidTable extends Component {
               <thead>
                 <tr>
                   <td>ID</td>
+                  <td>Created On:</td>
                   <td>Post Info</td>
                   <td>Address</td>
                   <td>Zipcode</td>

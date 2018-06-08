@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 // Define collection and schema for Items
-var ServerPort = new Schema({
+const IceRaidModel = new Schema({
   iceRaidPost: {
     type: String
   },
@@ -19,14 +19,10 @@ var ServerPort = new Schema({
     type: String
 },
   iceRaidDate: {
-    type: String
-  },
-  iceRaidTime: {
-    type: String
+    type: Date
   }
 },{
     collection: 'iceraids'
 });
 
-module.exports = mongoose.model('ServerPort', ServerPort);
-
+module.exports = mongoose.model('IceRaidnModel', IceRaidModel);
