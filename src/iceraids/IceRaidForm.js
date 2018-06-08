@@ -70,7 +70,7 @@ export default class IceRaidForm extends Component {
             iceRaidTime: this.state.iceRaidTime
         }
 
-        axios.post('http://localhost:4200/serverport/add', serverport)
+        axios.post('http://localhost:4200/iceraids/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
             iceRaidPost: '',
