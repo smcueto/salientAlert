@@ -4,7 +4,7 @@ const ServerPortRouter = express.Router();
 const ServerPort = require('../models/ServerPort');
 
 ServerPortRouter.route('/add').post(function (req, res) {
-  console.log("req:", req)
+  
   const serverport = new ServerPort(req.body);
   serverport.save()
     .then(serverport => {
@@ -12,17 +12,6 @@ ServerPortRouter.route('/add').post(function (req, res) {
     })
     .catch(err => {
     res.status(400).send("unable to save to database");
-    });
-});
-
-ServerPortRouter.route('/map').post(function (req, res) {
-  const serverport = new ServerPort(req.body);
-  serverport.save()
-    .then(serverport => {
-        res.json('loaded map page successfully');
-    })
-    .catch(err => {
-    res.status(400).send("unable to load map page");
     });
 });
 
