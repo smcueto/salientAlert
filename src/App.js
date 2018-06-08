@@ -6,6 +6,7 @@ import IceRaidForm from './iceraids/IceRaidForm';
 import IceRaidEdit from './iceraids/IceRaidEdit';
 
 import CheckPointForm from './checkpoints/CheckPointForm';
+import CheckPointEdit from './checkpoints/CheckPointEdit';
 
 import ResourcesPage from './ResourcesPage';
 import MapDisplay from './MapDisplay';
@@ -43,7 +44,10 @@ class App extends Component {
                   <Link to={'/map'} className="nav-link">Map</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={'/edit/:id'} className="nav-link">Edit</Link>
+                  <Link to={'/edit/:id'} className="nav-link">Edit Ice Raid</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/editcheckpoint'} className="nav-link">Edit Check Point</Link>
                 </li>
               </ul>
           </nav>
@@ -57,6 +61,7 @@ class App extends Component {
               <Route exact path='/checkpointform' component={CheckPointForm} />
               <Route exact path='/map' component={MapDisplay} />
               <Route path='/edit/:id' component={IceRaidEdit} />
+              <Route path='/editcheckpoint' component={CheckPointEdit} />
               <Route path='/index' component={TablePage} />
           </Switch>
           </div>
