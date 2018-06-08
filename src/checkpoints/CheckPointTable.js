@@ -1,50 +1,65 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import TableRow from './TableRow';
 
-class Table extends Component {
-  constructor(props) {
-    super(props);
-    this.delete = this.delete.bind(this);
-}
-delete() {
-    axios.get('http://localhost:4200/serverport/delete/'+this.props.obj._id)
-        .then(res => {
-          this.props.deleteReportObject(this.props.obj);
-        })
-        .catch(err => console.log(err))
-}
-  render() {  
-    return (
-        <tr>
-          <td>
-            {this.props.obj._id}
-          </td>
-          <td>
-            {this.props.obj.checkPointPost}
-          </td>
-          <td>
-            {this.props.obj.checkPointZipcode}
-          </td>
-          <td>
-            {this.props.obj.checkPointCity}
-          </td>
-          <td>
-            {this.props.obj.checkPointDate}
-          </td>
-          <td>
-            {this.props.obj.checkPointTime}
-          </td>
-          <td>
-          <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
-          </td>
-          <td>
-          <button onClick={this.delete} className="btn btn-danger">Delete</button>
-          </td>
-        </tr>
+
+export default class CheckPointTable extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {serverports: []};
+        this.tabRow.bind(this);
+        this.deleteReportObject.bind(this);
         
-    );
-  }
-}
+      }
+      
+      componentDidMount(){
+        axios.get('http://localhost:4200/serverport')
+        .then(response => {
+          this.setState({ serverports: response.data });
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
 
-export default Table;
+      deleteReportObject = (obj) => {
+        const currObjs = this.state.serverports.filter( currObj => currObj._id !== obj._id);
+        this.setState({
+            ...this.state,
+            serverports: currObjs
+        })
+      }
+
+      tabRow(deleteReportObject){
+        return this.state.serverports.map(function(object, i){
+            return <TableRow obj={object} key={i} deleteReportObject={deleteReportObject}/>;
+        });
+      }
+
+    render() {
+
+        return (
+            <div className="container">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Post Info</td>
+                  <td>Address</td>
+                  <td>Zipcode</td>
+                  <td>City</td>
+                  <td>State</td>
+                  <td>Date Reported</td>
+                  <td>Time Reported</td>
+                  <td>Edit Post</td>
+                  <td>Delete Post</td>
+                </tr>
+              </thead>
+              <tbody>
+                {this.tabRow(this.deleteReportObject)}
+              </tbody>
+            </table>
+        </div>
+        );
+    }
+}

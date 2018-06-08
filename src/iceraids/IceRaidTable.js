@@ -11,8 +11,7 @@ export default class IceRaidTable extends Component {
         this.deleteReportObject.bind(this);
         
       }
-
-
+      
       componentDidMount(){
         axios.get('http://localhost:4200/serverport')
         .then(response => {
@@ -22,7 +21,6 @@ export default class IceRaidTable extends Component {
           console.log(error);
         })
       }
-
 
       deleteReportObject = (obj) => {
         const currObjs = this.state.serverports.filter( currObj => currObj._id !== obj._id);

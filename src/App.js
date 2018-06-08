@@ -3,16 +3,15 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import IceRaidForm from './iceraids/IceRaidForm';
-import IceRaidTable from './iceraids/IceRaidTable';
 import IceRaidEdit from './iceraids/IceRaidEdit';
 
-
 import CheckPointForm from './checkpoints/CheckPointForm';
-import CheckPointTable from './checkpoints/CheckPointTable';
 
 import ResourcesPage from './ResourcesPage';
 import MapDisplay from './MapDisplay';
 import HomePage from './HomePage';
+import TablePage from './TablePage';
+
 
 
 class App extends Component {
@@ -58,7 +57,7 @@ class App extends Component {
               <Route exact path='/checkpointform' component={CheckPointForm} />
               <Route exact path='/map' component={MapDisplay} />
               <Route path='/edit/:id' component={IceRaidEdit} />
-              <Route path='/index' component={IceRaidTable} />
+              <Route path='/index' component={TablePage} />
           </Switch>
           </div>
         </div>
