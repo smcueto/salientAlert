@@ -24,6 +24,9 @@ delete() {
             {this.props.obj.iceRaidPost}
           </td>
           <td>
+            {this.props.obj.iceRaidCreatedOn}
+          </td>
+          <td>
             {this.props.obj.iceRaidAddress}
           </td>
           <td>
