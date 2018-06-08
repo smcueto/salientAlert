@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CheckPointPort = new Schema({
+var CheckPointCollectionModel = new Schema({
   checkPointPost: {
     type: String
   },
@@ -27,4 +27,4 @@ var CheckPointPort = new Schema({
     collection: 'checkpoints'
 });
 
-module.exports = mongoose.model('CheckPointSchema', CheckPointSchema);
+module.exports = mongoose.model('CheckPointModel', CheckPointModel);
