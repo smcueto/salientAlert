@@ -13,7 +13,7 @@ export default class CheckPointTable extends Component {
       }
       
       componentDidMount(){
-        axios.get('http://localhost:4200/serverport')
+        axios.get('http://localhost:4200/checkpoints')
         .then(response => {
           this.setState({ serverports: response.data });
         })
