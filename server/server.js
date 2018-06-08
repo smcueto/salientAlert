@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const PORT = 4200;
 const cors = require('cors');
 const config = require('./database/DB');
-const iceCollection = require('./routes/ServerPortRoutes');
+const iceRaidRoutes = require('./routes/ServerPortRoutes');
 
 mongoose.connect(config.DB).then(
     () => {console.log('Database is connected') },
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 app.use('/iceraids', iceCollection);
 
-// app.use('/checkpointport', CheckPointPort);
+// app.use('/checkpointport', iceRaidRoutes);
 
 app.listen(PORT, function(){
   console.log('Server is running on Port: ',PORT);
