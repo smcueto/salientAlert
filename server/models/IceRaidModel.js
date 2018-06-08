@@ -28,4 +28,4 @@ var iceRaidCollection = new Schema({
     collection: 'iceraids'
 });
 
-module.exports = mongoose.model('ServerPort', ServerPort);
+module.exports = mongoose.model('IceRaidModel', IceRaidModel);
