@@ -6,6 +6,9 @@ const IceRaidModel = new Schema({
   iceRaidPost: {
     type: String
   },
+  iceRaidDateTimeCreated: {
+    type: Date
+  },
   iceRaidAddress: {
     type: String
 },
@@ -19,7 +22,10 @@ const IceRaidModel = new Schema({
     type: String
 },
   iceRaidDate: {
-    type: Date
+    type: String
+  },
+  iceRaidTime: {
+    type: String
   }
 },{
     collection: 'iceraids'
