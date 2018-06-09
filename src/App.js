@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import IceRaidForm from './iceraids/IceRaidForm';
-import IceRaidEdit from './iceraids/IceRaidEdit';
 
 import CheckPointForm from './checkpoints/CheckPointForm';
-import CheckPointEdit from './checkpoints/CheckPointEdit';
 
 import ResourcesPage from './ResourcesPage';
 import MapDisplay from './MapDisplay';
@@ -43,12 +41,6 @@ class App extends Component {
                 <li className="nav-item">
                   <Link to={'/map'} className="nav-link">Map</Link>
                 </li>
-                <li className="nav-item">
-                  <Link to={'/edit/:id'} className="nav-link">Edit Ice Raid</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to={'/editcheckpoint'} className="nav-link">Edit Check Point</Link>
-                </li>
               </ul>
           </nav>
           </div>
@@ -60,8 +52,6 @@ class App extends Component {
               <Route exact path='/create' component={IceRaidForm} />
               <Route exact path='/checkpointform' component={CheckPointForm} />
               <Route exact path='/map' component={MapDisplay} />
-              <Route path='/edit/:id' component={IceRaidEdit} />
-              <Route path='/editcheckpoint' component={CheckPointEdit} />
               <Route path='/index' component={TablePage} />
           </Switch>
           </div>
