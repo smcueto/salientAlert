@@ -4,12 +4,14 @@ import axios from 'axios';
 export default class IceRaidForm extends Component {
     constructor(props) {
         super(props);
-        this.onChangeIceDateTime = this.onChangeIceDateTime.bind(this);
+        // this.onChangeIceDateTime = this.onChangeIceDateTime.bind(this);
         this.onChangeIcePost = this.onChangeIcePost.bind(this);
         this.onChangeIceAddress = this.onChangeIceAddress.bind(this);
         this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
         this.onChangeIceCity = this.onChangeIceCity.bind(this);
         this.onChangeIceState = this.onChangeIceState.bind(this);
+        this.onChangeIceDate = this.onChangeIceDate.bind(this);
+        this.onChangeIceTime = this.onChangeIceTime.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -18,14 +20,16 @@ export default class IceRaidForm extends Component {
             iceRaidAddress: '',
             iceRaidZipcode: '',
             iceRaidCity: '',
-            iceRaidState: ''
+            iceRaidState: '',
+            iceRaidDate: '',
+            iceRaidTime: ''
         }
     }
-    onChangeIceDateTime(e) {
-        this.setState({
-            iceRaidDateTime: e.target.value
-        });
-    }
+    // onChangeIceDateTime(e) {
+    //     this.setState({
+    //         iceRaidDateTime: e.target.value
+    //     });
+    // }
     
     onChangeIcePost(e) {
         this.setState({
@@ -52,26 +56,40 @@ export default class IceRaidForm extends Component {
             iceRaidState: e.target.value
         });
     }
+    onChangeIceDate(e) {
+        this.setState({
+            iceRaidState: e.target.value
+        });
+    }
+    onChangeIceTime(e) {
+        this.setState({
+            iceRaidState: e.target.value
+        });
+    }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            iceRaidDateTime: this.state.iceRaidDateTime,
+            // iceRaidDateTime: this.state.iceRaidDateTime,
             iceRaidPost: this.state.iceRaidPost,
             iceRaidAddress: this.state.iceRaidAddress,
             iceRaidZipcode: this.state.iceRaidZipcode,
             iceRaidCity: this.state.iceRaidCity,
-            iceRaidState: this.state.iceRaidState
+            iceRaidState: this.state.iceRaidState,
+            iceRaidDate: this.state.iceRaidDate,
+            iceRaidTime: this.state.iceRaidTime
         }
 
         axios.post('http://localhost:4200/iceraids/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
-            iceRaidDateTime: '',
+            // iceRaidDateTime: '',
             iceRaidPost: '',
             iceRaidAddress: '',
             iceRaidZipcode: '',
             iceRaidCity: '',
-            iceRaidState: ''
+            iceRaidState: '',
+            iceRaidDate: '',
+            iceRaidTime: ''
         })
     }
 
@@ -102,6 +120,16 @@ export default class IceRaidForm extends Component {
                         <label>Add State</label>
                         <input type="text" value={this.state.iceRaidState} className="form-control" 
                         onChange={this.onChangeIceState}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Add Date</label>
+                        <input type="text" value={this.state.iceRaidDate} className="form-control" 
+                        onChange={this.onChangeIceDate}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Add Time</label>
+                        <input type="text" value={this.state.iceRaidTime} className="form-control" 
+                        onChange={this.onChangeIceTime}/>
                     </div>
                     
                     <div className="form-group">

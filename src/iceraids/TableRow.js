@@ -21,9 +21,6 @@ delete() {
             {this.props.obj._id}
           </td>
           <td>
-            {this.props.obj.iceRaidDateTime}
-          </td>
-          <td>
             {this.props.obj.iceRaidPost}
           </td>
           <td>
@@ -37,6 +34,12 @@ delete() {
           </td>
           <td>
             {this.props.obj.iceRaidState}
+          </td>
+          <td>
+            {this.props.obj.iceRaidDate}
+          </td>
+          <td>
+            {this.props.obj.iceRaidTime}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

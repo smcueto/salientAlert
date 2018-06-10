@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for Items
 const IceRaidModel = new Schema({
-  iceRaidDateTime: {
-    type: Date
-  },
+  // iceRaidDateTime: {
+  //   type: Date
+  // },
   iceRaidPost: {
     type: String
   },
@@ -20,6 +20,12 @@ const IceRaidModel = new Schema({
   },
   iceRaidState: {
     type: String
+},
+iceRaidDate: {
+  type: Date
+},
+iceRaidTime: {
+  type: String
 }
 },{
     collection: 'iceraids'

@@ -22,7 +22,9 @@ export default class IceRaidEdit extends Component {
                 iceRaidAddress: response.data.iceRaidAddress, 
                 iceRaidZipcode: response.data.iceRaidZipcode, 
                 iceRaidCity: response.data.iceRaidCity,
-                iceRaidState: response.data.iceRaidState
+                iceRaidState: response.data.iceRaidState,
+                iceRaidDate: response.data.iceRaidDate,
+                iceRaidTime: response.data.iceRaidTime
              });
         })
         .catch(function (error) {
@@ -55,6 +57,16 @@ export default class IceRaidEdit extends Component {
             iceRaidState: e.target.value
         });
     }
+    onChangeIceDate(e) {
+        this.setState({
+            iceRaidDate: e.target.value
+        });
+    }
+    onChangeIceTime(e) {
+        this.setState({
+            iceRaidTime: e.target.value
+        });
+    }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
@@ -62,7 +74,9 @@ export default class IceRaidEdit extends Component {
             iceRaidAddress: this.state.iceRaidAddress,
             iceRaidZipcode: this.state.iceRaidZipcode,
             iceRaidCity: this.state.iceRaidCity,
-            iceRaidState: this.state.iceRaidState
+            iceRaidState: this.state.iceRaidState,
+            iceRaidDate: this.state.iceRaidDate,
+            iceRaidCity: this.state.iceRaidCity
         }
         axios.post('http://localhost:4200/iceraids/update/'+this.props.match.params.id, serverport)
         .then(res => this.props.history.push('/index'));
@@ -71,7 +85,9 @@ export default class IceRaidEdit extends Component {
             iceRaidAddress: '',
             iceRaidZipcode: '',
             iceRaidCity: '',
-            iceRaidState: ''
+            iceRaidState: '',
+            iceRaidDate: '',
+            iceRaidTime: ''
         })
     }
     render() {
