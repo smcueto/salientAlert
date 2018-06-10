@@ -9,11 +9,9 @@ export default class IceRaidEdit extends Component {
         this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
         this.onChangeIceCity = this.onChangeIceCity.bind(this);
         this.onChangeIceState = this.onChangeIceState.bind(this);
-        this.onChangeIceDate = this.onChangeIceDate.bind(this);
-        this.onChangeIceTime = this.onChangeIceTime.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        this.state = {iceRaidPost: '',iceRaidAddress: '', iceRaidZipcode: '', iceRaidCity: '',iceRaidState: '', iceRaidDate: '', iceRaidTime: ''};
+        this.state = {iceRaidPost: '',iceRaidAddress: '', iceRaidZipcode: '', iceRaidCity: '',iceRaidState: ''};
     }
 
     componentDidMount() {
@@ -24,9 +22,7 @@ export default class IceRaidEdit extends Component {
                 iceRaidAddress: response.data.iceRaidAddress, 
                 iceRaidZipcode: response.data.iceRaidZipcode, 
                 iceRaidCity: response.data.iceRaidCity,
-                iceRaidState: response.data.iceRaidState,
-                iceRaidDate: response.data.iceRaidDate,
-                iceRaidTime: response.data.iceRaidTime
+                iceRaidState: response.data.iceRaidState
              });
         })
         .catch(function (error) {
@@ -59,16 +55,6 @@ export default class IceRaidEdit extends Component {
             iceRaidState: e.target.value
         });
     }
-    onChangeIceDate(e) {
-        this.setState({
-            iceRaidDate: e.target.value
-        });
-    }
-    onChangeIceTime(e) {
-        this.setState({
-            iceRaidTime: e.target.value
-        });
-    }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
@@ -76,9 +62,7 @@ export default class IceRaidEdit extends Component {
             iceRaidAddress: this.state.iceRaidAddress,
             iceRaidZipcode: this.state.iceRaidZipcode,
             iceRaidCity: this.state.iceRaidCity,
-            iceRaidState: this.state.iceRaidState,
-            iceRaidDate: this.state.iceRaidDate,
-            iceRaidTime: this.state.iceRaidTime
+            iceRaidState: this.state.iceRaidState
         }
         axios.post('http://localhost:4200/iceraids/update/'+this.props.match.params.id, serverport)
         .then(res => this.props.history.push('/index'));
@@ -87,9 +71,7 @@ export default class IceRaidEdit extends Component {
             iceRaidAddress: '',
             iceRaidZipcode: '',
             iceRaidCity: '',
-            iceRaidState: '',
-            iceRaidDate: '',
-            iceRaidTime: ''
+            iceRaidState: ''
         })
     }
     render() {
@@ -117,16 +99,6 @@ export default class IceRaidEdit extends Component {
                 <div className="form-group">
                 <label>Edit Ice Raid State:  </label>
                 <input type="text" value={this.state.iceRaidState || ''} className="form-control" onChange={this.onChangeIceState}/>
-                </div>
-                <div className="form-group">
-                    <label>Edit Date</label>
-                    <input type="text" value={this.state.iceRaidDate || ''} className="form-control" 
-                    onChange={this.onChangeIceDate}/>
-                </div>
-                <div className="form-group">
-                    <label>Edit Time</label>
-                    <input type="text" value={this.state.iceRaidTime || ''} className="form-control" 
-                    onChange={this.onChangeIceTime}/>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Update server" className="btn btn-primary"/>

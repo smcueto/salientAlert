@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 // Define collection and schema for Items
 const IceRaidModel = new Schema({
+  iceRaidDateTime: {
+    type: Date
+  },
   iceRaidPost: {
     type: String
-  },
-  iceRaidDateTimeCreated: {
-    type: Date
   },
   iceRaidAddress: {
     type: String
@@ -20,15 +20,9 @@ const IceRaidModel = new Schema({
   },
   iceRaidState: {
     type: String
-},
-  iceRaidDate: {
-    type: String
-  },
-  iceRaidTime: {
-    type: String
-  }
+}
 },{
     collection: 'iceraids'
 });
 
-module.exports = mongoose.model('IceRaidnModel', IceRaidModel);
+module.exports = mongoose.model('IceRaidModel', IceRaidModel);
