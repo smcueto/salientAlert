@@ -5,9 +5,6 @@ const CheckPoint = new Schema({
   checkPointPost: {
     type: String
   },
-  checkPointDateTimeCreated: {
-    type: Date
-  },
   checkPointAddress: {
     type: String
   },
@@ -19,9 +16,10 @@ const CheckPoint = new Schema({
   },
   checkPointState: {
     type: String
-  },
+  }
+  ,
   checkPointDate: {
-    type: String
+    type: Date
   },
   checkPointTime: {
     type: String
