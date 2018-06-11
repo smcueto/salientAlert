@@ -20,9 +20,6 @@ const CheckPoint = new Schema({
   ,
   checkPointDate: {
     type: Date
-  },
-  checkPointTime: {
-    type: String
   }
 },{
     collection: 'checkpoints'

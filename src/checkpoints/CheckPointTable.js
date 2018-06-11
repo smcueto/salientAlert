@@ -49,8 +49,7 @@ export default class CheckPointTable extends Component {
                   <td>Zipcode</td>
                   <td>City</td>
                   <td>State</td>
-                  <td>Date Reported</td>
-                  <td>Time Reported</td>
+                  <td>Date and Time Reported</td>
                   <td>Edit Post</td>
                   <td>Delete Post</td>
                 </tr>

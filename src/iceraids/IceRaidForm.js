@@ -75,7 +75,6 @@ export default class IceRaidForm extends Component {
           iceRaidState: '',
           iceRaidDate: '',
         });
-        // throw err
       });
   }
 
@@ -120,7 +119,7 @@ export default class IceRaidForm extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Add Date and Time</label>
+            <label>Add Date and Time</label><br />
             <DateTimePicker
               value={this.state.iceRaidDate}
               onChange={this.onChangeIceDate}
