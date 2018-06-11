@@ -4,7 +4,6 @@ import axios from 'axios';
 export default class IceRaidForm extends Component {
     constructor(props) {
         super(props);
-        // this.onChangeIceDateTime = this.onChangeIceDateTime.bind(this);
         this.onChangeIcePost = this.onChangeIcePost.bind(this);
         this.onChangeIceAddress = this.onChangeIceAddress.bind(this);
         this.onChangeIceZipcode = this.onChangeIceZipcode.bind(this);
@@ -14,7 +13,6 @@ export default class IceRaidForm extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            iceRaidDateTime: '',
             iceRaidPost: '',
             iceRaidAddress: '',
             iceRaidZipcode: '',
@@ -51,7 +49,7 @@ export default class IceRaidForm extends Component {
     }
     onChangeIceDate(e) {
         this.setState({
-            iceRaiDate: e.target.value
+            iceRaidDate: e.target.value
         });
     }
     onSubmit(e) {
@@ -68,7 +66,6 @@ export default class IceRaidForm extends Component {
         axios.post('http://localhost:4200/iceraids/add', serverport)
         .then(res => console.log(res.data));
         this.setState({
-            // iceRaidDateTime: '',
             iceRaidPost: '',
             iceRaidAddress: '',
             iceRaidZipcode: '',
@@ -111,7 +108,6 @@ export default class IceRaidForm extends Component {
                         <input type="text" value={this.state.iceRaidDate} className="form-control" 
                         onChange={this.onChangeIceDate}/>
                     </div>
-                    
                     <div className="form-group">
                         <input type="submit" value="Add Event" className="btn btn-primary"/>
                     </div>
