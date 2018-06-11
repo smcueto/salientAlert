@@ -11,7 +11,6 @@ export default class IceRaidForm extends Component {
         this.onChangeIceCity = this.onChangeIceCity.bind(this);
         this.onChangeIceState = this.onChangeIceState.bind(this);
         this.onChangeIceDate = this.onChangeIceDate.bind(this);
-        this.onChangeIceTime = this.onChangeIceTime.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -21,15 +20,9 @@ export default class IceRaidForm extends Component {
             iceRaidZipcode: '',
             iceRaidCity: '',
             iceRaidState: '',
-            iceRaidDate: '',
-            iceRaidTime: ''
+            iceRaidDate: ''
         }
     }
-    // onChangeIceDateTime(e) {
-    //     this.setState({
-    //         iceRaidDateTime: e.target.value
-    //     });
-    // }
     
     onChangeIcePost(e) {
         this.setState({
@@ -58,25 +51,18 @@ export default class IceRaidForm extends Component {
     }
     onChangeIceDate(e) {
         this.setState({
-            iceRaidState: e.target.value
-        });
-    }
-    onChangeIceTime(e) {
-        this.setState({
-            iceRaidState: e.target.value
+            iceRaiDate: e.target.value
         });
     }
     onSubmit(e) {
         e.preventDefault();
         const serverport = {
-            // iceRaidDateTime: this.state.iceRaidDateTime,
             iceRaidPost: this.state.iceRaidPost,
             iceRaidAddress: this.state.iceRaidAddress,
             iceRaidZipcode: this.state.iceRaidZipcode,
             iceRaidCity: this.state.iceRaidCity,
             iceRaidState: this.state.iceRaidState,
-            iceRaidDate: this.state.iceRaidDate,
-            iceRaidTime: this.state.iceRaidTime
+            iceRaidDate: this.state.iceRaidDate
         }
 
         axios.post('http://localhost:4200/iceraids/add', serverport)
@@ -88,8 +74,7 @@ export default class IceRaidForm extends Component {
             iceRaidZipcode: '',
             iceRaidCity: '',
             iceRaidState: '',
-            iceRaidDate: '',
-            iceRaidTime: ''
+            iceRaidDate: ''
         })
     }
 
@@ -125,11 +110,6 @@ export default class IceRaidForm extends Component {
                         <label>Add Date</label>
                         <input type="text" value={this.state.iceRaidDate} className="form-control" 
                         onChange={this.onChangeIceDate}/>
-                    </div>
-                    <div className="form-group">
-                        <label>Add Time</label>
-                        <input type="text" value={this.state.iceRaidTime} className="form-control" 
-                        onChange={this.onChangeIceTime}/>
                     </div>
                     
                     <div className="form-group">

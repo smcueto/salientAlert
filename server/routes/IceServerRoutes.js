@@ -45,7 +45,6 @@ ServerPortRouter.route('/update/:id').post(function (req, res) {
       raidBodyRequest.iceRaidCity = req.body.iceRaidCity;
       raidBodyRequest.iceRaidState = req.body.iceRaidState;
       raidBodyRequest.iceRaidDate = req.body.iceRaidDate;
-      raidBodyRequest.iceRaidTime = req.body.iceRaidTime;
       raidBodyRequest.save().then(raidBodyRequest => {
           res.json(raidBodyRequest);
     

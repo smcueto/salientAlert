@@ -50,7 +50,6 @@ export default class IceRaidTable extends Component {
                   <td>City</td>
                   <td>State</td>
                   <td>Date</td>
-                  <td>Time</td>
                   <td>Edit Post</td>
                   <td>Delete Post</td>
                 </tr>
