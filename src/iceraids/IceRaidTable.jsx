@@ -49,7 +49,7 @@ export default class IceRaidTable extends Component {
                   <td>Zipcode</td>
                   <td>City</td>
                   <td>State</td>
-                  <td>Date</td>
+                  <td>Date and Time Created</td>
                   <td>Edit Post</td>
                   <td>Delete Post</td>
                 </tr>

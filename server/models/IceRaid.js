@@ -1,28 +1,35 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 // Define collection and schema for Items
 const IceRaidModel = new Schema({
   iceRaidPost: {
-    type: String
+    type: String,
   },
   iceRaidAddress: {
-    type: String
+    type: String,
   },
   iceRaidZipcode: {
-      type: Number
+    type: Number,
   },
   iceRaidCity: {
-    type: String
+    type: String,
   },
   iceRaidState: {
-    type: String
+    type: String,
   },
   iceRaidDate: {
-    type: Date
-  }
-},{
-    collection: 'iceraids'
+    type: Date,
+  },
+  iceRaidVoteUp: {
+    type: Number,
+  },
+  iceRaidVoteDown: {
+    type: Number,
+  },
+}, {
+  collection: 'iceraids',
 });
 
 module.exports = mongoose.model('IceRaidModel', IceRaidModel);
