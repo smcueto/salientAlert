@@ -10,10 +10,9 @@ export default class CheckPointEdit extends Component {
         this.onChangeCheckPointCity = this.onChangeCheckPointCity.bind(this);
         this.onChangeCheckPointState = this.onChangeCheckPointState.bind(this);
         this.onChangeCheckPointDate = this.onChangeCheckPointDate.bind(this);
-        this.onChangeCheckPointTime = this.onChangeCheckPointTime.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-        this.state = {checkPointPost: '',checkPointAddress: '', checkPointZipcode: '', checkPointCity: '',checkPointState: '', checkPointDate: '', checkPointTime: ''};
+        this.state = {checkPointPost: '',checkPointAddress: '', checkPointZipcode: '', checkPointCity: '',checkPointState: '', checkPointDate: ''};
     }
 
     componentDidMount() {
@@ -25,8 +24,7 @@ export default class CheckPointEdit extends Component {
                 checkPointZipcode: response.data.checkPointZipcode, 
                 checkPointCity: response.data.checkPointCity,
                 checkPointState: response.data.checkPointState,
-                checkPointDate: response.data.checkPointDate,
-                checkPointTime: response.data.checkPointTime
+                checkPointDate: response.data.checkPointDate
              });
         })
         .catch(function (error) {
@@ -61,12 +59,7 @@ export default class CheckPointEdit extends Component {
     }
     onChangeCheckPointDate(e) {
         this.setState({
-            checkPointDate: e.target.value
-        });
-    }
-    onChangeCheckPointTime(e) {
-        this.setState({
-            checkPointTime: e.target.value
+            checkPointDate: e
         });
     }
     onSubmit(e) {
@@ -77,8 +70,7 @@ export default class CheckPointEdit extends Component {
             checkPointZipcode: this.state.checkPointZipcode,
             checkPointCity: this.state.checkPointCity,
             checkPointState: this.state.checkPointState,
-            checkPointDate: this.state.checkPointDate,
-            checkPointTime: this.state.checkPointTime
+            checkPointDate: this.state.checkPointDate
         }
         axios.post('http://localhost:4200/checkpoints/update/'+this.props.match.params.id, serverport)
         .then(res => this.props.history.push('/index'));
@@ -88,8 +80,7 @@ export default class CheckPointEdit extends Component {
             checkPointZipcode: '',
             checkPointCity: '',
             checkPointState: '',
-            checkPointDate: '',
-            checkPointTime: ''
+            checkPointDate: ''
         })
     }
     render() {
@@ -122,11 +113,6 @@ export default class CheckPointEdit extends Component {
                     <label>Edit Date</label>
                     <input type="text" value={this.state.checkPointDate || ''} className="form-control" 
                     onChange={this.onChangeCheckPointDate}/>
-                </div>
-                <div className="form-group">
-                    <label>Edit Time</label>
-                    <input type="text" value={this.state.checkPointTime || ''} className="form-control" 
-                    onChange={this.onChangeCheckPointTime}/>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Update server" className="btn btn-primary"/>

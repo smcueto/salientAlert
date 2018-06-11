@@ -16,11 +16,11 @@ const CheckPoint = new Schema({
   },
   checkPointState: {
     type: String
-  },
+  }
+  ,
   checkPointDate: {
     type: Date
   }
- 
 },{
     collection: 'checkpoints'
 });

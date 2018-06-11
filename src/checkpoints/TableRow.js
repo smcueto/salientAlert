@@ -6,17 +6,17 @@ class TableRow extends Component {
   constructor(props) {
     super(props);
     this.delete = this.delete.bind(this);
-}
-delete() {
-    axios.get('http://localhost:4200/checkpoints/delete/'+this.props.obj._id)
-        .then(res => {
-          this.props.deleteReportObject(this.props.obj);
-        })
-        .catch(err => console.log(err))
-}
-  render() {  
+  }
+  delete() {
+    axios.get(`http://localhost:4200/checkpoints/delete/${this.props.obj._id}`)
+      .then((res) => {
+        this.props.deleteReportObject(this.props.obj);
+      })
+      .catch(err => console.log(err));
+  }
+  render() {
     return (
-        <tr>
+      <tr>
           <td>
             {this.props.obj._id}
           </td>
@@ -39,16 +39,13 @@ delete() {
             {this.props.obj.checkPointDate}
           </td>
           <td>
-            {this.props.obj.checkPointTime}
+            <Link to={'/edit/' + this.props.obj._id} className="btn btn-primary">Edit</Link>
           </td>
           <td>
-          <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
-          </td>
-          <td>
-          <button onClick={this.delete} className="btn btn-danger">Delete</button>
+            <button onClick={this.delete} className="btn btn-danger">Delete</button>
           </td>
         </tr>
-        
+
     );
   }
 }
