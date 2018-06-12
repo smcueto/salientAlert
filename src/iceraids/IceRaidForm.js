@@ -100,6 +100,7 @@ export default class IceRaidForm extends Component {
             <label>Add Zipcode</label>
             <input type="text" value={this.state.iceRaidZipcode} className="form-control" onChange={this.onChangeIceZipcode} />
           </div>
+
           <div className="form-group">
             <label>Add City</label>
             <input
@@ -109,6 +110,7 @@ export default class IceRaidForm extends Component {
               onChange={this.onChangeIceCity}
             />
           </div>
+
           <div className="form-group">
             <label>Add State</label>
             <input
@@ -118,6 +120,7 @@ export default class IceRaidForm extends Component {
               onChange={this.onChangeIceState}
             />
           </div>
+
           <div className="form-group">
             <label>Add Date and Time</label><br />
             <DateTimePicker
@@ -125,6 +128,7 @@ export default class IceRaidForm extends Component {
               onChange={this.onChangeIceDate}
             />
           </div>
+
           <div className="form-group">
             <input type="submit" value="Add Event" className="btn btn-primary" />
           </div>

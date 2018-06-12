@@ -15,6 +15,8 @@ class TableRow extends Component {
       .catch(err => console.log(err));
   }
   render() {
+    const date = new Date(this.props.obj.iceRaidDate);
+
     return (
       <tr>
         <td>
@@ -36,7 +38,7 @@ class TableRow extends Component {
           {this.props.obj.iceRaidState}
         </td>
         <td>
-          {this.props.obj.iceRaidDate}
+          {date.toLocaleString('en-US', { timeZone: 'UTC' })}
         </td>
         <td>
           <Link to={`/edit/${this.props.obj._id}`} className="btn btn-primary">Edit</Link>
