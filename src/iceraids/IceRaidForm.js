@@ -55,7 +55,7 @@ export default class IceRaidForm extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const serverport = {
+    const raid = {
       iceRaidPost: this.state.iceRaidPost,
       iceRaidAddress: this.state.iceRaidAddress,
       iceRaidZipcode: this.state.iceRaidZipcode,
@@ -64,7 +64,7 @@ export default class IceRaidForm extends Component {
       iceRaidDate: this.state.iceRaidDate,
     };
 
-    axios.post('http://localhost:4200/iceraids/add', serverport)
+    axios.post('http://localhost:4200/iceraids/add', raid)
       .then((res) => {
         console.log(res.data);
         this.setState({

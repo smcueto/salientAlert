@@ -11,11 +11,12 @@ class TableRow extends Component {
     axios.get(`http://localhost:4200/checkpoints/delete/${this.props.obj._id}`)
       .then((res) => {
         this.props.deleteReportObject(this.props.obj);
+        console.log('check point date', this.props.obj.checkPointDate)
       })
       .catch(err => console.log(err));
   }
   render() {
-    const date = new Date(this.props.obj.checkPointDate);
+    // const date = new Date(this.props.obj.checkPointDate);
     return (
       <tr>
         <td>
@@ -37,7 +38,8 @@ class TableRow extends Component {
           {this.props.obj.checkPointState}
         </td>
         <td>
-          {date.toLocaleString('en-US', { timeZone: 'UTC' })}
+          {this.props.obj.checkPointDate}
+          {/* {date.toLocaleString('en-US', { timeZone: 'UTC' })} */}
         </td>
         <td>
           <Link to={`/edit/${this.props.obj._id}`} className="btn btn-primary">Edit</Link>
