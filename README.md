@@ -5,7 +5,7 @@ Salient Alert is a online community space for people to report ICE Raids or Chec
 
 ***Tech Stack***: React, Express, MongoDB, Node, Yarn, and Brew
 
-***API***: MapBox API
+***API***: [Mapbox API](https://www.mapbox.com/api-documentation/?language=JavaScript#geocoding)
 * This project Builds of the Guidelines of ***Techtonica's Final Project***
 [https://github.com/Techtonica/curriculum/blob/master/projects/final-project/final-project.md](https://github.com/Techtonica/curriculum/blob/master/projects/final-project/final-project.md)
 * This project was bootstrapped with **Create React** App[https://github.com/facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
