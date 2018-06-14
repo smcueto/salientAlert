@@ -1,8 +1,7 @@
 # Salient Alert
 ### By Stephanie Cueto
-Application that helps you and your loved ones from being targeted unfairly from deportation and avoid ICE Raids.
 
-Signal is a online community space for people to report ICE Raids or Checkpoints that are happening. You will be able to see them and reported online via web app.
+Salient Alert is a online community space for people to report ICE Raids or Checkpoints that are happening. It is an application that helps you and your loved ones from being targeted unfairly from deportation and avoid ICE Raids. You will be able to see them and reported online via web app.
 
 ***Tech Stack***: React, Express, MongoDB, Node, Yarn, and Brew
 * This project Builds of the Guidelines of ***Techtonica's Final Project***
@@ -10,6 +9,7 @@ Signal is a online community space for people to report ICE Raids or Checkpoints
 * This project was bootstrapped with **Create React** App[https://github.com/facebookincubator/create-react-app](https://github.com/facebookincubator/create-react-app)
 ---
 ## **Step By Step to get Started**
+### Before starting your backend...
 * Fork repo and `git clone` url into your local desktop
 * Run `yarn install` to get your yarn modules
 
@@ -27,18 +27,23 @@ Signal is a online community space for people to report ICE Raids or Checkpoints
 
 ### B. Frontend Application
 1. In a seperate shell tab run `yarn start` to get react front end running on port 3000.
+2. Add access token to your keys.js file
 
 
 ## Current Feature list
 #### Frontend
-* Buttons - deleting and edit
-* Sub MissionForm
-* Two Table of Data
+* Buttons - deleting and edit.
+* Submission forms for Ice Raids and Check Points.
+* Two tables of data.
+* Rending address on map in a marker form.
 
 #### Backend
 * Running Express Server
 * Data Displayed and being sent to MongoDB backend database
-
+![datamodel](https://github.com/smcueto/salientAlert/public/img/SalientAlertDataModel.png)
 ## Later Features List
-* Voting up and down feature for data submitted
-* Pins on Map Feature will be display with dummy data input
+* Voting up and down feature for reports that are submitted
+* Data validation
+* OAuth for Admin User to take off spam data
+* Google Translate
+* BONUS: suggested routes to avoid Ice Raids and Check Points.
