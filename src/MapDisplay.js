@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import keys from './keys';
+import axios from 'axios';
 // import IceRaidForm from './IceRaidForm';
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
 export default class MapDisplay extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       lng: -95.87444616097513,
@@ -17,15 +19,6 @@ export default class MapDisplay extends Component {
   }
 
   componentDidMount() {
-    // function getURL(address, city, keys) {
-    //   return `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}, ${city}.json?country=us&access_keys=${keys.mapboxAccessToken}`;
-    // }
-
-    // // define address, city and keys earlier in the program
-
-    // const xhr = new XMLHttpRequest();
-    // xhr.open('GET', getURL(address, city, keys));
-
     const { lng, lat, zoom } = this.state;
 
     const map = new mapboxgl.Map({
@@ -45,22 +38,27 @@ export default class MapDisplay extends Component {
     });
 
     // san francisco location
-    new mapboxgl.Marker()
-      .setLngLat([-122.42409,
-        37.727826])
-      .addTo(map);
+    // new mapboxgl.Marker(serverports)
+    //   .setLngLat([-122.42409,
+    //     37.727826])
+    //   .addTo(map);
+
+    axios.get('http://localhost:4200/iceraids')
+      .then((response) => {
+        const serverports = response.data;
+        for (let i = 0; i < serverports.length; i++) {
+          console.log(serverports[i]);
+          const iceRaidObject = serverports[i].iceRaidCity;
+        }
+        // function renderMapMarkers(city, accessToken) {
+        //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?country=us&access_ token=${accessToken}`;
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  // axios call
-  // componentDidMount(){
-  // axios.get()
-  // .then(response => {
-  //   this.setState({ serverports: response.data });
-  // })
-  // .catch(fucntion(error) {
-  //   console.log(error);8
-  // })
-  // }
 
   render() {
     return (

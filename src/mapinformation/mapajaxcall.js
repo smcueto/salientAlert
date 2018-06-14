@@ -10,6 +10,7 @@
 // after the user clicks submit on the form
 function onSubmit (formData) {
     var url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + formData.address + ', ' + formData.city + '.json'....etc
+    
     myHttpRequest(url, 'GET')
     .then(function (res) {
      //create marker here using coordinates from res
