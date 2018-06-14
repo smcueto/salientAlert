@@ -37,23 +37,25 @@ export default class MapDisplay extends Component {
       });
     });
 
-    // san francisco location
-    // new mapboxgl.Marker(serverports)
-    //   .setLngLat([-122.42409,
-    //     37.727826])
-    //   .addTo(map);
-
     axios.get('http://localhost:4200/iceraids')
-      .then((response) => {
-        const serverports = response.data;
-        for (let i = 0; i < serverports.length; i++) {
-          console.log(serverports[i]);
-          const iceRaidObject = serverports[i].iceRaidCity;
-        }
-        // function renderMapMarkers(city, accessToken) {
-        //   `https://api.mapbox.com/geocoding/v5/mapbox.places/${city}.json?country=us&access_ token=${accessToken}`;
-        // }
-      })
+     .then((response) => {
+      const serverports = response.data;
+      for (let i = 0; i < serverports.length; i++) {
+        console.log(serverports[i]);
+        const iceRaidCity = serverports[i].iceRaidCity;
+
+        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
+          .then((cityDetails) => {
+            console.log('city details');
+            console.log(cityDetails);
+
+            new mapboxgl.Marker()
+                .setLngLat(
+                  cityDetails.data.features[0].geometry.coordinates
+                ).addTo(map);
+          });
+      }
+    })
       .catch((error) => {
         console.log(error);
       });
