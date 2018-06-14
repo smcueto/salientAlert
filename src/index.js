@@ -1,5 +1,3 @@
-import Axios from 'axios';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -12,8 +10,3 @@ ReactDOM.render(<BrowserRouter>
     </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
 
-
-/* let x;
-x = 1;
-y = x + 1;
-//x = axios.get('https://xvalue');  */
