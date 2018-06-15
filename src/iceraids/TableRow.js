@@ -11,13 +11,19 @@ class TableRow extends Component {
     axios.get(`http://localhost:4200/iceraids/delete/${this.props.obj._id}`)
       .then((res) => {
         this.props.deleteReportObject(this.props.obj);
-        console.log('this is the ice raid date', this.props.obj.iceRaidDate)
+        // console.log('this is the ice raid date', this.props.obj.iceRaidDate);
       })
       .catch(err => console.log(err));
   }
-  render() {
-    const date = new Date(this.props.obj.iceRaidDate);
+  displayDate(){
+    if(this.props.obj.iceRaidDate){
+      let options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
+      return new Date(this.props.obj.iceRaidDate).toLocaleDateString(window.navigator.language, options);
+    }
+    else return 'Date or Time not set.'
+  }
 
+  render() {
     return (
       <tr>
         <td>
@@ -39,7 +45,8 @@ class TableRow extends Component {
           {this.props.obj.iceRaidState}
         </td>
         <td>
-          {date.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}
+          {/* {this.props.obj.iceRaidDate} */}
+          {this.displayDate()}
         </td>
         <td>
           <Link to={`/edit/${this.props.obj._id}`} className="btn btn-primary">Edit</Link>

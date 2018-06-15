@@ -55,6 +55,11 @@ export default class IceRaidForm extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    navigator.geolocation.getCurrentPosition(function(position){
+      console.log(position);
+    }, (error) => {
+      console.log(error);
+    });
     const raid = {
       iceRaidPost: this.state.iceRaidPost,
       iceRaidAddress: this.state.iceRaidAddress,
@@ -64,7 +69,7 @@ export default class IceRaidForm extends Component {
       iceRaidDate: this.state.iceRaidDate,
     };
 
-    axios.post('http://localhost:4200/iceraids/add', raid)
+    axios.post("http://localhost:4200/iceraids/add", raid)
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -75,13 +80,20 @@ export default class IceRaidForm extends Component {
           iceRaidState: '',
           iceRaidDate: '',
         });
-      });
+      })
+      .catch((err) =>{
+        this.setState({
+          //set errors
+        });
+      }
+    )
   }
 
   render() {
     return (
       <div style={{ marginTop: 50 }}>
         <h3>Report Ice Raid</h3>
+        
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Ice Raid Information:  </label>
