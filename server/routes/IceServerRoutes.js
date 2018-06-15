@@ -11,7 +11,9 @@ ServerPortRouter.route('/add').post((req, res) => {
       res.json('Ice Raid Report added successfully');
     })
     .catch((err) => {
-      res.status(500).send('unable to save to database');
+      console.log('=========================================', err.errors, '========================================================');
+      res.status(500).send(err.errors);
+      
     });
 });
 
