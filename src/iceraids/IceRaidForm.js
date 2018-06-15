@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DateTimePicker from 'react-datetime-picker';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 export default class IceRaidForm extends Component {
   constructor(props) {
@@ -19,10 +21,9 @@ export default class IceRaidForm extends Component {
       iceRaidZipcode: '',
       iceRaidCity: '',
       iceRaidState: '',
-      iceRaidDate: '',
+      iceRaidDate: null,
     };
   }
-
   onChangeIcePost(e) {
     this.setState({
       iceRaidPost: e.target.value,
@@ -55,7 +56,7 @@ export default class IceRaidForm extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    navigator.geolocation.getCurrentPosition(function(position){
+    window.navigator.geolocation.getCurrentPosition((position) => {
       console.log(position);
     }, (error) => {
       console.log(error);
@@ -66,10 +67,10 @@ export default class IceRaidForm extends Component {
       iceRaidZipcode: this.state.iceRaidZipcode,
       iceRaidCity: this.state.iceRaidCity,
       iceRaidState: this.state.iceRaidState,
-      iceRaidDate: this.state.iceRaidDate,
+      iceRaidDate: this.state.iceRaidDate.toISOString(),
     };
 
-    axios.post("http://localhost:4200/iceraids/add", raid)
+    axios.post('http://localhost:4200/iceraids/add', raid)
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -78,22 +79,21 @@ export default class IceRaidForm extends Component {
           iceRaidZipcode: '',
           iceRaidCity: '',
           iceRaidState: '',
-          iceRaidDate: '',
+          iceRaidDate: null,
         });
       })
-      .catch((err) =>{
+      .catch((err) => {
         this.setState({
-          //set errors
+          // set errors
         });
-      }
-    )
+      });
   }
 
   render() {
     return (
       <div style={{ marginTop: 50 }}>
         <h3>Report Ice Raid</h3>
-        
+
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Ice Raid Information:  </label>
@@ -135,9 +135,13 @@ export default class IceRaidForm extends Component {
 
           <div className="form-group">
             <label>Add Date and Time</label><br />
-            <DateTimePicker
-              value={this.state.iceRaidDate}
+            <ReactDatePicker
+              selected={this.state.iceRaidDate}
               onChange={this.onChangeIceDate}
+              showTimeSelect
+              timeIntervals={15}
+              dateFormat="LLL"
+              timeCaption="time"
             />
           </div>
 

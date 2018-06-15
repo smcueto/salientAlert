@@ -15,12 +15,14 @@ class TableRow extends Component {
       })
       .catch(err => console.log(err));
   }
-  displayDate(){
-    if(this.props.obj.iceRaidDate){
-      let options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',hour: 'numeric', minute: 'numeric', timeZoneName: 'short'};
+  displayDate() {
+    if (this.props.obj.iceRaidDate) {
+      const options = {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZoneName: 'short',
+      };
       return new Date(this.props.obj.iceRaidDate).toLocaleDateString(window.navigator.language, options);
     }
-    else return 'Date or Time not set.'
+    return 'Date or Time not set.';
   }
 
   render() {
