@@ -20,7 +20,7 @@ const IceRaidModel = new Schema({
     type: String,
   },
   iceRaidDate: {
-    type: Date,
+    type: { Date },
   },
   iceRaidVoteUp: {
     type: Number,
