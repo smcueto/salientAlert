@@ -1,28 +1,28 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 const CheckPoint = new Schema({
   checkPointPost: {
-    type: String
+    type: String,
   },
   checkPointAddress: {
-    type: String
+    type: String,
   },
   checkPointZipcode: {
-      type: Number
+    type: Number,
   },
   checkPointCity: {
-    type: String
+    type: String,
   },
   checkPointState: {
-    type: String
-  }
-  ,
+    type: String,
+  },
   checkPointDate: {
-    type: Date
-  }
-},{
-    collection: 'checkpoints'
+    type: { Date },
+  },
+}, {
+  collection: 'checkpoints',
 });
 
 module.exports = mongoose.model('CheckPoint', CheckPoint);
