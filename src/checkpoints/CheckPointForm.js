@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DateTimePicker from 'react-datetime-picker/dist/DateTimePicker';
+import ReactDatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class CheckPointForm extends Component {
   constructor(props) {
@@ -104,6 +105,7 @@ export default class CheckPointForm extends Component {
               value={this.state.checkPointCity}
               className="form-control"
               onChange={this.onChangeCheckPointCity}
+              required
             />
           </div>
           <div className="form-group">
@@ -113,14 +115,19 @@ export default class CheckPointForm extends Component {
               value={this.state.checkPointState}
               className="form-control"
               onChange={this.onChangeCheckPointState}
+              required
             />
           </div>
           <div className="form-group">
-            <label>Add Date and Time</label>
-            <br />
-            <DateTimePicker
-              value={this.state.checkPointDate}
+            <label>Add Date and Time</label><br />
+            <ReactDatePicker
+              selected={this.state.checkPointDate}
               onChange={this.onChangeCheckPointDate}
+              showTimeSelect
+              timeIntervals={15}
+              dateFormat="LLL"
+              timeCaption="time"
+              required
             />
           </div>
           <div className="form-group">

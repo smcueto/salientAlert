@@ -120,7 +120,7 @@ export default class IceRaidEdit extends Component {
             <input type="text" value={this.state.iceRaidState || ''} className="form-control" onChange={this.onChangeIceState} />
           </div>
           <div className="form-group">
-            <label>Edit Ice Raid Date:  </label>
+            <label>Edit Ice Raid Date and Time:  </label>
             <ReactDatePicker
               selected={this.state.iceRaidDate}
               onChange={this.onChangeIceDate}

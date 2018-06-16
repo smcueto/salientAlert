@@ -106,11 +106,12 @@ export default class IceRaidForm extends Component {
               value={this.state.iceRaidAddress}
               className="form-control"
               onChange={this.onChangeIceAddress}
+              required
             />
           </div>
           <div className="formgit b-group">
             <label>Add Zipcode</label>
-            <input type="text" value={this.state.iceRaidZipcode} className="form-control" onChange={this.onChangeIceZipcode} />
+            <input type="number" value={this.state.iceRaidZipcode} className="form-control" onChange={this.onChangeIceZipcode} />
           </div>
 
           <div className="form-group">
@@ -120,6 +121,7 @@ export default class IceRaidForm extends Component {
               value={this.state.iceRaidCity}
               className="form-control"
               onChange={this.onChangeIceCity}
+              required
             />
           </div>
 
@@ -130,6 +132,7 @@ export default class IceRaidForm extends Component {
               value={this.state.iceRaidState}
               className="form-control"
               onChange={this.onChangeIceState}
+              required
             />
           </div>
 
@@ -142,6 +145,7 @@ export default class IceRaidForm extends Component {
               timeIntervals={15}
               dateFormat="LLL"
               timeCaption="time"
+              required
             />
           </div>
 

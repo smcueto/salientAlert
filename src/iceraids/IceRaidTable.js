@@ -40,16 +40,16 @@ export default class IceRaidTable extends Component {
 
         return (
             <div className="container">
+            
             <table className="table table-striped">
               <thead>
                 <tr>
-                  <td>ID</td>
                   <td>Post Info</td>
                   <td>Address</td>
                   <td>Zipcode</td>
                   <td>City</td>
                   <td>State</td>
-                  <td>Date and Time Created</td>
+                  <td>Date and Time to Happen:</td>
                   <td>Edit Post</td>
                   <td>Delete Post</td>
                 </tr>

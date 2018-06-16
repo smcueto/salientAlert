@@ -29,9 +29,6 @@ class TableRow extends Component {
     return (
       <tr>
         <td>
-          {this.props.obj._id}
-        </td>
-        <td>
           {this.props.obj.iceRaidPost}
         </td>
         <td>
@@ -47,7 +44,6 @@ class TableRow extends Component {
           {this.props.obj.iceRaidState}
         </td>
         <td>
-          {/* {this.props.obj.iceRaidDate} */}
           {this.displayDate()}
         </td>
         <td>
