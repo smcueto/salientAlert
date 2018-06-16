@@ -14,6 +14,15 @@ ServerPortRouter.route('/add').post((req, res) => {
       res.status(500).send('unable to save to database');
     });
 });
+ServerPortRouter.route('/checkpointmapmarker/:id').get((req, res) => {
+  CheckPointModel.findById(
+    req.params.id,
+    (err, checkpoint) => {
+      if (err) res.json(err);
+      else res.json(checkpoint);
+    },
+  );
+});
 
 ServerPortRouter.route('/').get((req, res) => {
   CheckPointModel.find((err, serverports) => {

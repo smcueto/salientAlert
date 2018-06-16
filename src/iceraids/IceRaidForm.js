@@ -148,7 +148,6 @@ export default class IceRaidForm extends Component {
               required
             />
           </div>
-
           <div className="form-group">
             <input type="submit" value="Add Event" className="btn btn-primary" />
           </div>

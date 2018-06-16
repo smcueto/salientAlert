@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import keys from './keys';
-import axios from 'axios';
+
 // import IceRaidForm from './IceRaidForm';
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
@@ -36,26 +37,43 @@ export default class MapDisplay extends Component {
         zoom: map.getZoom().toFixed(2),
       });
     });
+    map.addControl(new mapboxgl.NavigationControl());
 
     axios.get('http://localhost:4200/iceraids')
-     .then((response) => {
-      const serverports = response.data;
-      for (let i = 0; i < serverports.length; i++) {
-        console.log(serverports[i]);
-        const iceRaidCity = serverports[i].iceRaidCity;
+      .then((response) => {
+        const serverports = response.data;
+        for (let i = 0; i < serverports.length; i++) {
+          console.log(serverports[i]);
+          const iceRaidCity = serverports[i].iceRaidCity;
+          // const checkPointCity = serverports[i].checkPointCity;
 
-        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
-          .then((cityDetails) => {
-            console.log('city details');
-            console.log(cityDetails);
+          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
+            .then((cityDetails) => {
+              console.log('city details');
+              console.log(cityDetails);
 
-            new mapboxgl.Marker()
-                .setLngLat(
-                  cityDetails.data.features[0].geometry.coordinates
-                ).addTo(map);
-          });
-      }
-    })
+              new mapboxgl.Marker()
+                .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);
+            });
+        }
+      });
+    axios.get('http://localhost:4200/checkpoints')
+      .then((response) => {
+        const serverports = response.data;
+        for (let i = 0; i < serverports.length; i++) {
+          console.log(serverports[i]);
+          const checkPointCity = serverports[i].checkPointCity;
+
+          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${checkPointCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
+            .then((cityDetails) => {
+              console.log('city details');
+              console.log(cityDetails);
+
+              new mapboxgl.Marker()
+                .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);
+            });
+        }
+      })
       .catch((error) => {
         console.log(error);
       });

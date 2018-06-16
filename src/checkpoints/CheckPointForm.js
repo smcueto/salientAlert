@@ -20,7 +20,7 @@ export default class CheckPointForm extends Component {
       checkPointZipcode: '',
       checkPointCity: '',
       checkPointState: '',
-      checkPointDate: '',
+      checkPointDate: null,
     };
   }
   onChangeCheckPointPost(e) {
@@ -55,16 +55,19 @@ export default class CheckPointForm extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const serverport = {
+    // maybe add window navigator
+
+
+    const checkpoint = {
       checkPointPost: this.state.checkPointPost,
       checkPointAddress: this.state.checkPointAddress,
       checkPointZipcode: this.state.checkPointZipcode,
       checkPointCity: this.state.checkPointCity,
       checkPointState: this.state.checkPointState,
-      checkPointDate: this.state.checkPointDate,
+      checkPointDate: this.state.checkPointDate.toISOString(),
     };
 
-    axios.post('http://localhost:4200/checkpoints/add', serverport)
+    axios.post('http://localhost:4200/checkpoints/add', checkpoint)
       .then(res => console.log(res.data));
     this.setState({
       checkPointPost: '',
@@ -72,7 +75,7 @@ export default class CheckPointForm extends Component {
       checkPointZipcode: '',
       checkPointCity: '',
       checkPointState: '',
-      checkPointDate: '',
+      checkPointDate: null,
     });
   }
 

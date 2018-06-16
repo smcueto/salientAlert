@@ -11,9 +11,10 @@ ServerPortRouter.route('/add').post((req, res) => {
       res.json('Ice Raid Report added successfully');
     })
     .catch((err) => {
+      // send error to backend
       console.log('=========================================', err.errors, '========================================================');
+      // sending error to the frontendconsole
       res.status(500).send(err.errors);
-      
     });
 });
 
