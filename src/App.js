@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import IceRaidForm from './iceraids/IceRaidForm';
-
 import CheckPointForm from './checkpoints/CheckPointForm';
 
 import ResourcesPage from './ResourcesPage';

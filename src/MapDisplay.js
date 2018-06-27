@@ -4,13 +4,10 @@ import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import keys from './keys';
 
-// import IceRaidForm from './IceRaidForm';
-
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
 export default class MapDisplay extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       lng: -95.87444616097513,
@@ -43,15 +40,11 @@ export default class MapDisplay extends Component {
       .then((response) => {
         const serverports = response.data;
         for (let i = 0; i < serverports.length; i++) {
-          console.log(serverports[i]);
           const iceRaidCity = serverports[i].iceRaidCity;
           // const checkPointCity = serverports[i].checkPointCity;
 
           axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
             .then((cityDetails) => {
-              console.log('city details');
-              console.log(cityDetails);
-
               new mapboxgl.Marker()
                 .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);
             });
@@ -66,9 +59,6 @@ export default class MapDisplay extends Component {
 
           axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${checkPointCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
             .then((cityDetails) => {
-              console.log('city details');
-              console.log(cityDetails);
-
               new mapboxgl.Marker()
                 .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);
             });
