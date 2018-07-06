@@ -21,7 +21,7 @@ export default class IceRaidEdit extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4200/iceraids/edit/${this.props.match.params.id}`)
+    axios.get(`/iceraids/edit/${this.props.match.params.id}`)
       .then((response) => {
         this.setState({
           iceRaidPost: response.data.iceRaidPost,
@@ -78,7 +78,7 @@ export default class IceRaidEdit extends Component {
       iceRaidState: this.state.iceRaidState,
       iceRaidDate: this.state.iceRaidDate,
     };
-    axios.post(`http://localhost:4200/iceraids/update/${this.props.match.params.id}`, serverport)
+    axios.post(`/iceraids/update/${this.props.match.params.id}`, serverport)
       .then(res => this.props.history.push('/index'));
     this.setState({
       iceRaidPost: '',

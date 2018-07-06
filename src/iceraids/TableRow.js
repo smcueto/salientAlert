@@ -8,7 +8,7 @@ class TableRow extends Component {
     this.delete = this.delete.bind(this);
   }
   delete() {
-    axios.get(`http://localhost:4200/iceraids/delete/${this.props.obj._id}`)
+    axios.get(`/iceraids/delete/${this.props.obj._id}`)
       .then((res) => {
         this.props.deleteReportObject(this.props.obj);
         // console.log('this is the ice raid date', this.props.obj.iceRaidDate);

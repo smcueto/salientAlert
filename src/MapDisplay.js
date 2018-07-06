@@ -36,7 +36,7 @@ export default class MapDisplay extends Component {
     });
     map.addControl(new mapboxgl.NavigationControl());
 
-    axios.get('http://localhost:4200/iceraids')
+    axios.get('/iceraids')
       .then((response) => {
         const serverports = response.data;
         for (let i = 0; i < serverports.length; i++) {
@@ -50,7 +50,7 @@ export default class MapDisplay extends Component {
             });
         }
       });
-    axios.get('http://localhost:4200/checkpoints')
+    axios.get('/checkpoints')
       .then((response) => {
         const serverports = response.data;
         for (let i = 0; i < serverports.length; i++) {

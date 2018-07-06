@@ -21,7 +21,7 @@ export default class CheckPointEdit extends Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:4200/checkpoints/edit/${this.props.match.params.id}`)
+    axios.get(`/checkpoints/edit/${this.props.match.params.id}`)
       .then((response) => {
         this.setState({
           checkPointPost: response.data.checkPointPost,
@@ -77,7 +77,7 @@ export default class CheckPointEdit extends Component {
       checkPointState: this.state.checkPointState,
       checkPointDate: this.state.checkPointDate,
     };
-    axios.post(`http://localhost:4200/checkpoints/update/${this.props.match.params.id}`, serverport)
+    axios.post(`/checkpoints/update/${this.props.match.params.id}`, serverport)
       .then(res => this.props.history.push('/index'));
     this.setState({
       checkPointPost: '',

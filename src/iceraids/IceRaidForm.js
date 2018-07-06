@@ -80,7 +80,7 @@ export default class IceRaidForm extends Component {
       iceRaidDate: this.state.iceRaidDate.toISOString(),
     };
 
-    axios.post('http://localhost:4200/iceraids/add', raid)
+    axios.post('/iceraids/add', raid)
       .then((res) => {
         console.log(res.data);
         this.setState({

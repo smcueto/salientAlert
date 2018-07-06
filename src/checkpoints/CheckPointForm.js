@@ -67,7 +67,7 @@ export default class CheckPointForm extends Component {
       checkPointDate: this.state.checkPointDate.toISOString(),
     };
 
-    axios.post('http://localhost:4200/checkpoints/add', checkpoint)
+    axios.post('/checkpoints/add', checkpoint)
       .then(res => console.log(res.data));
     this.setState({
       checkPointPost: '',
