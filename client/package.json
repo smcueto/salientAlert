@@ -1,0 +1,25 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "4.0.0",
+    "mapbox-gl": "^0.45.0",
+    "moment": "^2.22.2",
+    "react": "^16.4.0",
+    "react-datepicker": "^1.5.0",
+    "react-dom": "^16.4.0",
+    "react-moment-datetimepicker": "^0.7.0",
+    "react-places-autocomplete": "^7.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:4200"
+}
