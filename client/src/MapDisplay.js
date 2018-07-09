@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import keys from '../keys';
+import keys from './keys';
 
 mapboxgl.accessToken = keys.mapboxAccessToken;
 
