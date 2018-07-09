@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import PlacesAutocomplete from 'react-places-autocomplete';
-import keys from '../keys';
+import keys from './keys';
 
 import {
   geocodeByAddress,
