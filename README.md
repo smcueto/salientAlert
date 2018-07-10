@@ -43,7 +43,7 @@ Salient Alert is a online community space for people to report ICE Raids or Chec
 * Running Express Server
 * Data Displayed and being sent to MongoDB backend database
 
-![datamodel](https://github.com/smcueto/salientAlert/blob/master/public/SalientAlertDataModel.png?raw=true)
+![datamodel](client/public/SalientAlertDataModel.png)
 ## Later Features List
 * Voting up and down feature for reports that are submitted
 * Data validation
