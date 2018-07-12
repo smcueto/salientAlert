@@ -14,6 +14,7 @@ import IceRaidEdit from './iceraids/IceRaidEdit';
 
 function App() {
   return (
+    console.log('HEY WORK')
     <Router>
       <div>
         <div className="container">
