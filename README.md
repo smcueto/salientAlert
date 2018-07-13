@@ -18,8 +18,8 @@ Salient Alert is a online community space for people to report ICE Raids or Chec
 
 ### A. Backend Data Base
 1. Download _*Mongo DB*_ [https://docs.mongodb.com/manual/installation/](https://docs.mongodb.com/manual/installation/)
-2. Start your back end server run `mongod` by running the shell command on seperate tab from your bash to navigate.
-3. Get your back end server to listen by running `node server/server`
+1. Start your back end server run `mongod` by running the shell command on seperate tab from your bash to navigate.
+3. Get your backend server to listen by running `yarn start` in your root directory
 4. See what is on your mongo database by running `mongo` on a seperate tab
 5. Do command `show dbs` to show collections
 6. `use salientalert` to use collection Salient alert
@@ -28,7 +28,7 @@ Salient Alert is a online community space for people to report ICE Raids or Chec
 
 
 ### B. Frontend Application
-1. In a seperate shell tab run `yarn start` to get react front end running on port 3000.
+1. In a seperate shell tab CD into the Client file and run `yarn start` to get react front end running on port 3000.
 2. Add access token to your keys.js file
 
 
