@@ -24,6 +24,6 @@ app.use(bodyParser.json());
 app.use('/iceraids', iceRaidRoutes);
 app.use('/checkpoints', checkPointRoutes);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log('Server is running on Port: ', PORT);
 });
