@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 5000;
 const cors = require('cors');
 const config = require('./database/DB');
 const iceRaidRoutes = require('./routes/IceServerRoutes');
