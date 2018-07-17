@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node server",
-    "install": "cd client && yarn install && yarn run build"
+    "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "engines": {
     "node": "8"
