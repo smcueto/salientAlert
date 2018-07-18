@@ -47,11 +47,11 @@ function App() {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/home" component={HomePage} />
             <Route exact path="/resources" component={ResourcesPage} />
-            <Route exact path="/create" component={IceRaidForm} />
+            <Route exact path="/iceraidform" component={IceRaidForm} />
             <Route exact path="/checkpointform" component={CheckPointForm} />
             <Route exact path="/map" component={MapDisplay} />
             <Route exact path="/edit/:id" component={IceRaidEdit} />
-            <Route path="/index" component={TablePage} />
+            <Route path="/reports" component={TablePage} />
           </Switch>
         </div>
       </div>
