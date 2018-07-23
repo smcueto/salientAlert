@@ -40,10 +40,12 @@ export default class MapDisplay extends Component {
       .then((response) => {
         const serverports = response.data;
         for (let i = 0; i < serverports.length; i++) {
+          const iceRaidAddress = serverports[i].iceRaidAddress;
           const iceRaidCity = serverports[i].iceRaidCity;
-          // const checkPointCity = serverports[i].checkPointCity;
+          const iceRaidState = serverports[i].iceRaidState;
+          const iceRaidZipcode = serverports[i].iceRaidZipcode;
 
-          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
+          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${iceRaidAddress},${iceRaidCity},${iceRaidState},${iceRaidZipcode}.json?country=us&access_token=${keys.mapboxAccessToken}`)
             .then((cityDetails) => {
               new mapboxgl.Marker()
                 .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);
@@ -54,10 +56,12 @@ export default class MapDisplay extends Component {
       .then((response) => {
         const serverports = response.data;
         for (let i = 0; i < serverports.length; i++) {
-          console.log(serverports[i]);
+          const checkPointAddress = serverports[i].checkPointAddress;
           const checkPointCity = serverports[i].checkPointCity;
+          const checkPointState = serverports[i].checkPointState;
+          const checkPointZipcode = serverports[i].checkPointZipcode;
 
-          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${checkPointCity}.json?country=us&access_token=${keys.mapboxAccessToken}`)
+          axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${checkPointAddress},${checkPointCity},${checkPointState},${checkPointZipcode}.json?country=us&access_token=${keys.mapboxAccessToken}`)
             .then((cityDetails) => {
               new mapboxgl.Marker()
                 .setLngLat(cityDetails.data.features[0].geometry.coordinates).addTo(map);

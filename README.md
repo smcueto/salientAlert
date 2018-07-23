@@ -28,7 +28,7 @@ Salient Alert is a online community space for people to report ICE Raids or Chec
 
 
 ### B. Frontend Application
-1. In a seperate shell tab CD into the Client file and run `yarn start` to get react front end running on port 3000.
+1. In a seperate shell tab CD into the Client file and run `yarn start` to get react front end running on port 5000.
 2. Add access token to your keys.js file
 
 

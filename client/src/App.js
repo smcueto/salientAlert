@@ -28,13 +28,13 @@ function App() {
                 <Link to="/resources" className="nav-link">Resources</Link>
               </li>
               <li className="nav-item">
-                <Link to="/create" className="nav-link">Report Ice Raid</Link>
+                <Link to="/iceraidform" className="nav-link">Report Ice Raid</Link>
               </li>
               <li className="nav-item">
                 <Link to="/checkpointform" className="nav-link">Report CheckPoint</Link>
               </li>
               <li className="nav-item">
-                <Link to="/index" className="nav-link">Reports</Link>
+                <Link to="/reports" className="nav-link">Reports</Link>
               </li>
               <li className="nav-item">
                 <Link to="/map" className="nav-link">Map</Link>

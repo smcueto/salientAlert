@@ -12,7 +12,7 @@ export default class IceRaidForm extends Component {
     this.onChangeIceCity = this.onChangeIceCity.bind(this);
     this.onChangeIceState = this.onChangeIceState.bind(this);
     this.onChangeIceDate = this.onChangeIceDate.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       iceRaidPost: '',
@@ -28,6 +28,7 @@ export default class IceRaidForm extends Component {
       iceRaidPost: e.target.value,
     });
   }
+
   onChangeIceAddress(e) {
     this.setState({
       iceRaidAddress: e.target.value,
@@ -53,10 +54,13 @@ export default class IceRaidForm extends Component {
       iceRaidDate: e,
     });
   }
-  onSubmit(e) {
-    e.preventDefault();
+
+  handleClick() {
+    if (this.state.iceRaidDate == null) {
+      alert('invalid input');
+      return;
+    }
     window.navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position);
     }, (error) => {
       console.log(error);
     });
@@ -81,6 +85,7 @@ export default class IceRaidForm extends Component {
           iceRaidDate: null,
         });
       })
+      // code for re-routing
       .catch((err) => {
         this.setState({
           // set errors
@@ -148,7 +153,7 @@ export default class IceRaidForm extends Component {
             />
           </div>
           <div className="form-group">
-            <input type="submit" value="Add Event" className="btn btn-primary" />
+            <button type="button" onClick={this.handleClick} className="btn btn-primary">Add Event</button>
           </div>
         </form>
       </div>

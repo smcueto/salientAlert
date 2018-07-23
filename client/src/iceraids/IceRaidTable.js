@@ -40,7 +40,6 @@ export default class IceRaidTable extends Component {
 
         return (
             <div className="container">
-            
             <table className="table table-striped">
               <thead>
                 <tr>

@@ -11,7 +11,6 @@ class TableRow extends Component {
     axios.get(`/iceraids/delete/${this.props.obj._id}`)
       .then((res) => {
         this.props.deleteReportObject(this.props.obj);
-        // console.log('this is the ice raid date', this.props.obj.iceRaidDate);
       })
       .catch(err => console.log(err));
   }
