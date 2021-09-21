@@ -91,15 +91,15 @@ export default class IceRaidEdit extends Component {
   }
   render() {
     return (
-      <div style={{ marginTop: 50 }}>
-        <h3>Edit Ice Raid Post</h3>
+      <div class="container" style={{ marginTop: 50 }}>
+        <h3>Edit ICE Post</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Edit Ice Raid Post:  </label>
+            <label>Edit Information:  </label>
             <input type="text" value={this.state.iceRaidPost || ''} className="form-control" onChange={this.onChangeIcePost} />
           </div>
           <div className="form-group">
-            <label>Edit Ice Raid Address:  </label>
+            <label>Edit Address:  </label>
             <input type="text" value={this.state.iceRaidAddress || ''} className="form-control" onChange={this.onChangeIceAddress} />
           </div>
           <div className="form-group">
@@ -116,11 +116,11 @@ export default class IceRaidEdit extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Edit Ice Raid State:  </label>
+            <label>Edit State:  </label>
             <input type="text" value={this.state.iceRaidState || ''} className="form-control" onChange={this.onChangeIceState} />
           </div>
           <div className="form-group">
-            <label>Edit Ice Raid Date and Time:  </label>
+            <label>Edit Date and Time:  </label>
             <ReactDatePicker
               selected={this.state.iceRaidDate}
               onChange={this.onChangeIceDate}
@@ -131,7 +131,7 @@ export default class IceRaidEdit extends Component {
             />
           </div>
           <div className="form-group">
-            <input type="submit" value="Update server" className="btn btn-primary" />
+            <input type="submit" value="Update Post" className="btn btn-primary" />
           </div>
         </form>
       </div>

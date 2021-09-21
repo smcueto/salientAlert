@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import IceRaidTable from './iceraids/IceRaidTable';
 import CheckPointTable from './checkpoints/CheckPointTable';
 import MapDisplay from './MapDisplay';
+import './index.css';
 
 export default class TablePage extends Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <MapDisplay />
-        <h2>Ice Raid Reports</h2>
+        <b className="tabletitle" style={{ marginLeft: 15}} >ICE Reports</b>
         <IceRaidTable />
-        <h2> Check Point Reports</h2>
+        <b className="tabletitle" style={{ marginLeft: 15 }}> Checkpoint Reports</b>
         <CheckPointTable />
       </div>
     );

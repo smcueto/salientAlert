@@ -6,19 +6,21 @@ import CheckPointForm from './checkpoints/CheckPointForm';
 
 function HomePage() {
   return (
-    <div className="welcome-context">
-      <h1><center>Welcome to <br /><i>Salient Alert</i></center></h1>
-      <Link to="/create"><button className="btn btn-warning btn-lg" >
-         Report Ice
-      </button>
+    <div className="welcome-text">
+      <a className="title"><center>Welcome to <br /><i><b>Salient Alert</b></i></center></a>
+      <p id="shortAbout"> An online community space to report ICE Raids or Checkpoints and avoid them.</p>
+      <Link to="/iceraidform">
+        <button className="btn btn-warning btn-lg">
+         Report ICE
+        </button>
       </Link>
       <Link to="/checkpointform">
         <button className="btn btn-warning btn-lg">
-        Report Check Point
+        Report Checkpoint
         </button>
       </Link>
       <Switch>
-        <Route exact path="/create" component={IceRaidForm} />
+        <Route exact path="/iceraidform" component={IceRaidForm} />
         <Route exact path="/checkpointform" component={CheckPointForm} />
       </Switch>
     </div>

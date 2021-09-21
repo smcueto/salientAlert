@@ -9,6 +9,27 @@
 # production
 /build
 
+#yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarn/cache
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+.yarn/
+.yarnrc.yml
+client/.yarn/
+client/yarn.lock
+
 # misc
 .DS_Store
 .env.local

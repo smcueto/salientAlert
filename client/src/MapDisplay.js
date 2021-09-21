@@ -76,8 +76,8 @@ export default class MapDisplay extends Component {
 
   render() {
     return (
-      <div>
-        <div ref={el => this.mapContainer = el} className="mapContainer" />
+      <div className="container">
+        <div ref={el => this.mapContainer = el} className="mapContainer" style={{ marginTop: 80 }} />
       </div>
     );
   }

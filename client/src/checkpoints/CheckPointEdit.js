@@ -90,11 +90,11 @@ export default class CheckPointEdit extends Component {
   }
   render() {
     return (
-      <div style={{ marginTop: 50 }}>
-        <h3>Edit Check Point Post</h3>
+      <div class="container" style={{ marginTop: 50 }}>
+        <h3>Edit Checkpoint Post</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Edit Check point Post:  </label>
+            <label>Edit Information:  </label>
             <input type="text" value={this.state.checkPointPost || ''} className="form-control" onChange={this.onChangeCheckPointPost} />
           </div>
           <div className="form-group">
@@ -119,7 +119,7 @@ export default class CheckPointEdit extends Component {
             <input type="text" value={this.state.checkPointState || ''} className="form-control" onChange={this.onChangeCheckPointState} />
           </div>
           <div className="form-group">
-            <label>Edit Check Point Date and Time:</label>
+            <label>Edit Date and Time:</label>
             <ReactDatePicker
               selected={this.state.checkPointDate}
               onChange={this.onChangeCheckPointDate}
@@ -130,7 +130,7 @@ export default class CheckPointEdit extends Component {
             />
           </div>
           <div className="form-group">
-            <input type="submit" value="Update server" className="btn btn-primary" />
+            <input type="submit" value="Update Post" className="btn btn-primary" />
           </div>
         </form>
       </div>

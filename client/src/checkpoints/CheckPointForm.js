@@ -81,11 +81,12 @@ export default class CheckPointForm extends Component {
 
   render() {
     return (
+      <div className="container">
       <div style={{ marginTop: 50 }}>
-        <h3>Report Check Point</h3>
+        <h3>Report Checkpoint</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Check Point Information:  </label>
+            <label>Checkpoint Information:  </label>
             <input type="text" value={this.state.checkPointPost} className="form-control" onChange={this.onChangeCheckPointPost} />
           </div>
           <div className="form-group">
@@ -137,6 +138,7 @@ export default class CheckPointForm extends Component {
             <input type="submit" value="Add Event" className="btn btn-primary" />
           </div>
         </form>
+      </div>
       </div>
     );
   }
